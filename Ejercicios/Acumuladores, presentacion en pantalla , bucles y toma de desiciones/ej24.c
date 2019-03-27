@@ -9,39 +9,34 @@ int main()
     int cantPesoHasta80 = 0;
     char respuesta;
 
-    do
-    {
-        printf("Ingrese el peso: \n ");
-        scanf("%fw",&peso);
-
-
-        while(peso <= 0  )
+        do
         {
-            printf("Peso invalido ingrese otra vez: ");
-            scanf("%f",&peso);
+            printf("Ingrese el peso: \n ");
+            scanf("%fw",&peso);
+
+
+
+
+
+
+            if(peso <= 80)
+            {
+                cantPesoHasta80++;
+            }
+            else
+            {
+                cantPesoMayor80++;
+            }
+
+
+            fflush(stdin);
+            printf("Desea continuar?\nPulse [N] Para finalizar sino pulse cualquier tecla\n");
+            scanf("%c",&respuesta);
+
+            respuesta = toupper(respuesta);
+
         }
-
-
-
-
-        if(peso <= 80)
-        {
-            cantPesoHasta80++;
-        }
-        else
-        {
-            cantPesoMayor80++;
-        }
-
-
-        fflush(stdin);
-        printf("Desea continuar?\nPulse [N] Para finalizar sino pulse cualquier tecla\n");
-        scanf("%c",&respuesta);
-
-        respuesta = toupper(respuesta);
-
-    }
-    while(respuesta != 'N');
+        while(respuesta != 'N');
 
 
     printf("Empleados que pesan hasta 80kg %d\n", cantPesoHasta80);
