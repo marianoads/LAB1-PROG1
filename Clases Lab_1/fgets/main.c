@@ -11,7 +11,7 @@ int main()
     //fgets(buffer, 62, stdin);
     fgets(buffer,sizeof(buffer)-2,stdin);
 
-    cantidad = strlen(buffer);
+    cantidad = strlen(buffer); //cantidad de elementos de una cadena
 
     buffer[cantidad-1] = '\0';
 
