@@ -9,7 +9,7 @@ int main()
 
     for(int i = 0; i < 20 ; i++)
     {
-        printf("%d \n", vec[i]);
+        printf("%d indice %i\n", vec[i], i);
 
         if(flag == 0 || vec[i]> mayor)
         {
@@ -18,6 +18,7 @@ int main()
         }
 
     }
+
 
     printf("el mayor es : %d \n",mayor);
     return 0;
