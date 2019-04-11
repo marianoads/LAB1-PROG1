@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    /*char cad1[20] = "Hola";
+    char cad2[20] = "HolA";
+
+    if(strcmp(cad1, cad2) == 0){
+
+        printf("son iguales\n");
+    }
+    else if(strcmp(cad1, cad2) > 0){
+        printf("cad1 es mayor");
+
+    }
+    else{
+
+        printf("cad2 es mayor");
+    }*/
+
+
+    char cad[20];
+    char cad1[20];
+
+    printf("Ingrese una palabra\n");
+    //gets(cad);
+    scanf("%s", cad);
+    printf("\n\n");
+    printf("Ingrese una palabra\n");
+    //gets(cad1);
+    printf("\n\n");
+    scanf("%s", cad1);
+    printf("len cad %d len cad1 %d\n",strlen(cad),strlen(cad1));
+    printf("cad %s cad1 %s",cad ,cad1);
+
+
+    return 0;
+}
