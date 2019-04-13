@@ -26,34 +26,35 @@ int main()
 }
 
 
-int pedirDato(int min, int max, int* valor, int intentos,  char* mensaje, char* msjError){
+int pedirDato(int min, int max, int* valor, int intentos,  char* mensaje, char* msjError)
+{
 
 
-int edad;
-int todoOk = 0;
-int cont = 0;
+    int edad;
+    int todoOk = 0;
+    int cont = 0;
 
-printf("%s entre %d y %d: ", mensaje,  min, max);
-scanf("%d", &edad);
+    printf("%s entre %d y %d: ", mensaje,  min, max);
+    scanf("%d", &edad);
 
-while( (edad < min || edad > max) && cont < intentos  ){
+    while( (edad < min || edad > max) && cont < intentos  ){
 
-        cont++;
+            cont++;
 
-        if( cont == intentos){
-            break;
-        }
-        printf("%s entre %d y %d: ", msjError, min, max);
-        scanf("%d", &edad);
-}
+            if( cont == intentos){
+                break;
+            }
+            printf("%s entre %d y %d: ", msjError, min, max);
+            scanf("%d", &edad);
+    }
 
-if(cont < intentos){
+    if(cont < intentos){
 
-    *valor = edad;
-     todoOk = 1;
+        *valor = edad;
+         todoOk = 1;
 
-}
+    }
 
-return todoOk;
+    return todoOk;
 
 }

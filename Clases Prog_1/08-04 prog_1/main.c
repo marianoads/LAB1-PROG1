@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 
+char *strlwr(char *str);
+
 int main()
 {
 
@@ -31,4 +33,16 @@ int main()
 
     puts(nombreCompleto);
     return 0;
+}
+
+char *strlwr(char *str)
+{
+  unsigned char *p = (unsigned char *)str;
+
+  while (*p) {
+     *p = tolower((unsigned char)*p);
+      p++;
+  }
+
+  return str;
 }

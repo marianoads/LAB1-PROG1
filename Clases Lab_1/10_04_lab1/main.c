@@ -15,7 +15,7 @@ struct datosPersonales
 };
 
 
-int main()
+void main()
 {
     struct datosPersonales agenda;
     /*   tipo de dato */   /*variable*/
@@ -78,5 +78,5 @@ int main()
 
 
 
-    return 0;
+
 }
