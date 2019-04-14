@@ -17,7 +17,7 @@ int obtenerNumero(void)
         status = scanf("%d", &input);
     }
 
-
+    return input;
 }
 
 
