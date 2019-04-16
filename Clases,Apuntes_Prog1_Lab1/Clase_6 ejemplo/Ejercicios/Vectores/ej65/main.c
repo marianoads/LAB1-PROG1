@@ -24,12 +24,12 @@ int main()
 
 
            opcion = getchar();
+                    fflush(stdin);
 
             switch(opcion)
             {
                 case 'a':
                     system("clear");
-                    fflush(stdin);
 
                     for(int i = 0; i < TAM ; i++)
                         enteros[i] = obtenerNumero();
