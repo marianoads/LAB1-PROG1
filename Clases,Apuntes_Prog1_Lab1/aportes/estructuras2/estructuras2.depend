@@ -11,3 +11,19 @@
 	<ctype.h>
 	<conio.h>
 
+1555506015 source:/home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/estructuras2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"empleados.h"
+
+1555507295 source:/home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/estructuras2/empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"empleados.h"
+
+1555506582 /home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/estructuras2/empleados.h
+
