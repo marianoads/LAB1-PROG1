@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1555333705 source:c:\users\alumno\desktop\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
+1555341566 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\clases,apuntes_prog1_lab1\aportes\estructuras2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+
