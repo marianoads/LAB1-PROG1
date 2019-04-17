@@ -13,8 +13,18 @@ typedef struct
     float sueldo;
     int ocupado;
     eFecha fechaNac;
+    //char sector[31];
+    int idSector;
 
 } eEmpleado;
+
+typedef struct{
+
+    int id;
+    char desc[31];
+
+
+}eSector;
 
 
 int menu();
