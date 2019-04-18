@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1555548573 source:/home/gilberto/Escritorio/ABLEMPLEADOS/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
