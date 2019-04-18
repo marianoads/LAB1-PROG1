@@ -1,35 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
+#include "empleados.h"
 
-#define TAM 2
-
-typedef struct{
-
-    char nombre[20];
-    char sexo;
-    int legajo;
-    int sueldo;
-    int ocupado;
+#define TAM 3
 
 
-
-
-}eEmpleado;
-
-int menu();
-int getNumero();
-void inicializarEmpleados(eEmpleado vec[],int tam);
-void altaEmpleado(eEmpleado emp[], int tam);
-int buscarLibre(eEmpleado vec[],int tam);
 
 int main()
 {
     char salir;
     int status;
     eEmpleado emp[TAM];
+    //{{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
 
-    inicializarEmpleados(emp, TAM);
+   inicializarEmpleados(emp, TAM);
 
 
     do{
@@ -37,7 +23,12 @@ int main()
         switch(menu()){
 
             case 1:
+
                 altaEmpleado(emp,TAM);
+                pause();
+               // system("psuse");
+
+
             break;
 
             case 2:
@@ -50,6 +41,7 @@ int main()
             break;
 
             case 5:
+                mostrarEmpleados(emp, TAM);
             break;
 
             case 6:
@@ -57,6 +49,7 @@ int main()
 
                 printf("Seguro que quiere salir s/n");
                 setbuf(stdin, NULL);
+//                getche(salir);
                 status = scanf("%c", &salir);
                 salir = tolower(salir);
 
@@ -67,9 +60,8 @@ int main()
                     salir = tolower(salir);
                     printf("\n");
                 }
-                setbuf(stdin,NULL);
 
-                if(salir == 's')
+                    if(salir == 's')
                     getchar();
 
 
@@ -93,115 +85,3 @@ int main()
 
     return 0;
 }
-
-
-int menu(){
-
-    int opcion;
-
-    puts("***  ABM EMPLEADOS ***");
-    puts("1- Alta Empleado\n");
-    puts("2- Baja Empleado\n");
-    puts("3- Modificar Empleado\n");
-    puts("4- Ordenar Empleados\n");
-    puts("5- Listar Empleados\n");
-    puts("6- Salir\n\n\n");
-
-    printf("Ingrese Una Opcion ");
-
-    opcion = getNumero();
-
-
-    return opcion;
-
-
-}
-
-int getNumero(void){
-
-    int input, temp, status;                        // input es el "numero" ingresado por el usuario
-                                                        // temp es para recolectar caracteres basura
-                                                        // status para saber si el usuario en realidad ingreso un numero
-
-
-    status = scanf("%d", &input);
-
-    while(status!=1){
-        while((temp=getchar()) != EOF && temp != '\n');
-        printf("ERROR ingrese una opcion valida: ");
-        status = scanf("%d", &input);
-    }
-
-    return input;
-
-}
-
-void inicializarEmpleados(eEmpleado emp[],int tam){
-
-    int i;
-
-    for( i = 0 ; i < tam ; i++){
-
-        emp[i].ocupado = 0;
-
-    }
-}
-
-void altaEmpleado(eEmpleado emp[], int tam){
-
-    int legajo;
-    int libre;
-
-    libre = buscarLibre(emp, tam);
-
-    if(libre == -1){
-
-        printf("NO HAY LUGAR EN EL SISTEMA\n");
-    }
-    else{
-
-        printf("Ingrese Legajo ");
-        legajo = getNumero();
-
-
-
-    }
-}
-
-int buscarLibre(eEmpleado vec[],int tam){
-
-    int libre = -1;
-
-    for(int i = 0 ; i < tam ; i++){
-
-       if(vec[i].ocupado == 0){
-
-            libre = i;
-            break;
-
-       }
-
-
-    }
-
-    return libre;
-}
-int buscarEmpleado(int legajo , eEmpleado vec[], int tam){
-
-    int libre;
-
-    libre = -1;
-
-    for(int i = 0 ; i < tam; i++){
-
-        if(vec[i].ocupado == 1 && vec[i].legajo == legajo){
-            libre = i;
-            break;
-        }
-
-    }
-
-    return libre;
-}
-
-
