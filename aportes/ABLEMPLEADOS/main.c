@@ -10,7 +10,7 @@ typedef struct{
     char sexo;
     int legajo;
     int sueldo;
-    int estado;
+    int ocupado;
 
 
 
@@ -21,6 +21,7 @@ int menu();
 int getNumero();
 void inicializarEmpleados(eEmpleado vec[],int tam);
 void altaEmpleado(eEmpleado emp[], int tam);
+int buscarLibre(eEmpleado vec[],int tam);
 
 int main()
 {
@@ -141,7 +142,7 @@ void inicializarEmpleados(eEmpleado emp[],int tam){
 
     for( i = 0 ; i < tam ; i++){
 
-        emp[i].estado = 0;
+        emp[i].ocupado = 0;
 
     }
 }
@@ -149,10 +150,58 @@ void inicializarEmpleados(eEmpleado emp[],int tam){
 void altaEmpleado(eEmpleado emp[], int tam){
 
     int legajo;
+    int libre;
 
-    printf("Ingrese legajo ");
-    legajo = getNumero();
+    libre = buscarLibre(emp, tam);
 
+    if(libre == -1){
+
+        printf("NO HAY LUGAR EN EL SISTEMA\n");
+    }
+    else{
+
+        printf("Ingrese Legajo ");
+        legajo = getNumero();
+
+
+
+    }
+}
+
+int buscarLibre(eEmpleado vec[],int tam){
+
+    int libre = -1;
+
+    for(int i = 0 ; i < tam ; i++){
+
+       if(vec[i].ocupado == 0){
+
+            libre = i;
+            break;
+
+       }
+
+
+    }
+
+    return libre;
+}
+int buscarEmpleado(int legajo , eEmpleado vec[], int tam){
+
+    int libre;
+
+    libre = -1;
+
+    for(int i = 0 ; i < tam; i++){
+
+        if(vec[i].ocupado == 1 && vec[i].legajo == legajo){
+            libre = i;
+            break;
+        }
+
+    }
+
+    return libre;
 }
 
 
