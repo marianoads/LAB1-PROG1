@@ -227,6 +227,7 @@ void bajaEmpleado(eEmpleado emp[],int tam){
         if(emp[esta].legajo == legajo){
 
             emp[esta].ocupado = 0;
+            system("cls");
             printf("Se ha dado de bajo el empleado con legajo %d\n",legajo);
         }
     }
@@ -239,10 +240,10 @@ void modificarEmpleado(eEmpleado vec[], int tam){
     int legajo;
     char salir;
  //   int status;
-    int nuevoLegajo;
+ //   int nuevoLegajo;
     /*int nuevoSueldo;
     char nuevoNombre[20];*/
-    char resp;
+
     salir = 'n';
 
     printf("Ingrese Legajo:\n");
@@ -259,7 +260,7 @@ void modificarEmpleado(eEmpleado vec[], int tam){
             switch(menuModificar()){
 
                 case 'a':
-                    printf("Ingrese nuevo legajo\n");
+                 /*   printf("Ingrese nuevo legajo\n");
                     nuevoLegajo = getNumero();
                     resp = confirmarCambios();
                    if(resp == 's'){
@@ -270,14 +271,14 @@ void modificarEmpleado(eEmpleado vec[], int tam){
                    else{
 
                     break;
-                   }
+                   }*/
 
 
 
                 break;
 
                 case 'b':
-
+                    printf("Ingrese nuevo nombre");
                 break;
 
                 case 'c':
@@ -286,9 +287,6 @@ void modificarEmpleado(eEmpleado vec[], int tam){
 
                 case 'd':
 
-                break;
-
-                case 'e':
                     printf("Seguro que quiere salir s/n");
 
                     salir = getche();
@@ -306,8 +304,6 @@ void modificarEmpleado(eEmpleado vec[], int tam){
                     printf("\n\n");
 
                  }
-
-
                 break;
 
                 default:
@@ -326,11 +322,10 @@ void modificarEmpleado(eEmpleado vec[], int tam){
 int menuModificar(){
     char opcion;
 
-    printf("a- Modificar Legajo\n");
-    printf("b- Modificar Nombre\n");
-    printf("c- Modificar Sueldo\n");
-    printf("d- Modificar Fecha De Nacimiento\n");
-    printf("e- Salir\n");
+    printf("a- Modificar Nombre\n");
+    printf("b- Modificar Sueldo\n");
+    printf("c- Modificar Fecha De Nacimiento\n");
+    printf("d- Salir\n");
 
 
     opcion = getchar();
@@ -361,3 +356,32 @@ char confirmarCambios(){
 
 
 }
+
+void ordenarEmpleados(eEmpleado emp[],int tam,int flag){
+
+    eEmpleado auxEmp;
+
+    if(flag == 0){
+
+        printf("No se pueden ordenar los empleados\n\n");
+    }
+    else{
+
+        for(int i = 0 ; i < tam-1; i++){
+            for(int j = i+1; j < tam ; j++){
+                if(strcmp(emp[i].nombre, emp[j].nombre)> 0){
+
+                    auxEmp = emp[i];
+                    emp[i] = emp[j];
+                    emp[j] = auxEmp;
+
+                }
+            }
+        }
+
+    }
+
+
+
+}
+

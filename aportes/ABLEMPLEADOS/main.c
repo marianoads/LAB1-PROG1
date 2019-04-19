@@ -15,6 +15,8 @@ int main()
     //int status;
     eEmpleado emp[TAM];
     //{{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
+    eSector sector[TAM];
+    int flag = 0;
 
    inicializarEmpleados(emp, TAM);
 
@@ -29,7 +31,7 @@ int main()
               //  pause();
                 system("pause");
 
-
+                flag = 1;
             break;
 
             case 2:
@@ -45,7 +47,7 @@ int main()
             break;
 
             case 4:
-
+                ordenarEmpleados(emp, TAM, flag);
             break;
 
             case 5:

@@ -14,10 +14,19 @@ typedef struct{
     int legajo;
     float sueldo;
     int ocupado;
+    int idSector;
     eFecha fechaNac;
 
 
 }eEmpleado;
+
+typedef struct{
+
+    int id;
+    char desc[31];
+
+
+}eSector;
 
 int menu();
 void pause();
@@ -31,5 +40,6 @@ void mostrarEmpleado(eEmpleado emp);
 void mostrarEmpleados(eEmpleado vec[], int tam);
 void modificarEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado emp[],int tam);
+void ordenarEmpleados(eEmpleado emp[],int tam, int flag);
 int menuModificar();
 char confirmarCambios();

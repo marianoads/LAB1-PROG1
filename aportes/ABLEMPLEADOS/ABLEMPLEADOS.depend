@@ -4,7 +4,7 @@
 	<stdlib.h>
 	<ctype.h>
 
-1555637000 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\main.c
+1555699284 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -28,7 +28,7 @@
 	<string.h>
 	"empleados.h"
 
-1555636988 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\empleados.c
+1555699450 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\empleados.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -36,5 +36,5 @@
 	<conio.h>
 	"empleados.h"
 
-1555636988 c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\empleados.h
+1555699487 c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\ablempleados\empleados.h
 
