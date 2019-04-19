@@ -188,20 +188,20 @@ int buscarLibre(eEmpleado vec[],int tam){
 }
 int buscarEmpleado(int legajo , eEmpleado vec[], int tam){
 
-    int libre;
+    int indice;
 
-    libre = -1;
+    indice = -1;
 
     for(int i = 0 ; i < tam; i++){
 
         if(vec[i].ocupado == 1 && vec[i].legajo == legajo){
-            libre = i;
+            indice = i;
             break;
         }
 
     }
 
-    return libre;
+    return indice;
 }
 
 
@@ -209,17 +209,149 @@ void bajaEmpleado(eEmpleado emp[],int tam){
 
     int legajo;
     int esta;
-    int indice;
+
 
     printf("Ingrese Legajo ");
     legajo = getNumero();
 
-    esta = buscarEmpleado();
+    esta = buscarEmpleado(legajo, emp, tam);
 
     if(esta == -1){
 
-        printf("No se ha encontrado un empleado con legajo %d",legajo);
+        printf("No se ha encontrado un empleado con legajo %d\n",legajo);
+
     }
+    else{
+
+        if(emp[esta].legajo == legajo){
+
+            emp[esta].ocupado = 0;
+            printf("Se ha dado de bajo el empleado con legajo %d\n",legajo);
+        }
+    }
+
+}
+
+void modificarEmpleado(eEmpleado vec[], int tam){
+
+    int indice;
+    int legajo;
+    char salir;
+    int status;
+    int nuevoLegajo;
+    /*int nuevoSueldo;
+    char nuevoNombre[20];*/
+    char resp;
+    salir = 'n';
+
+    printf("Ingrese Legajo:\n");
+    legajo = getNumero();
+
+    indice = buscarEmpleado(legajo, vec, tam);
+
+    if(indice == -1){
+        printf("No existe el empleado de legajo %d\n",legajo);
+    }
+    else{
+
+        do{
+            switch(menuModificar()){
+
+                case 'a':
+                    printf("Ingrese nuevo legajo\n");
+                    nuevoLegajo = getNumero();
+                    resp = confirmarCambios();
+                   if(resp == 's'){
+
+                        vec[indice].legajo = nuevoLegajo;
+
+                   }
+                   else{
+
+                    break;
+                   }
+
+
+
+                break;
+
+                case 'b':
+
+                break;
+
+                case 'c':
+
+                break;
+
+                case 'd':
+
+                break;
+
+                case 'e':
+                    printf("Seguro que desea salir? s/n");
+                    setbuf(stdin, NULL);
+//                getche(salir);
+                    status = scanf("%c", &salir);
+                    salir = tolower(salir);
+
+                while(status != 1){
+                    printf("Error Ingrese una opcion valida\n");
+                    printf("Ingrese una opcion ");
+                    status = scanf("%c", &salir);
+                    salir = tolower(salir);
+                    printf("\n");
+                }
+
+                break;
+
+                default:
+
+                break;
+            }
+        }
+        while(!(salir == 's' ));
+    }
+
+
+
+
+}
+
+int menuModificar(){
+    char opcion;
+
+    printf("a- Modificar Legajo\n");
+    printf("b- Modificar Nombre\n");
+    printf("c- Modificar Sueldo\n");
+    printf("d- Modificar Fecha De Nacimiento\n");
+    printf("e- Salir\n");
+
+
+    opcion = getchar();
+    return opcion;
+
+}
+
+char confirmarCambios(){
+
+    printf("Confirma cambios? s/n");
+
+    char resp;
+
+
+
+    scanf(" %c", &resp);
+    resp = tolower(resp);
+    setbuf(stdin, NULL);
+
+    while(!(resp == 's' || resp == 'n')){
+
+        puts("ERROR ingrese una respuesta valida");
+        scanf(" %c", &resp);
+        resp = tolower(resp);
+
+    }
+    return resp;
 
 
 }

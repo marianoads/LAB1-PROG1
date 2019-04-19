@@ -32,12 +32,17 @@ int main()
             break;
 
             case 2:
+                bajaEmpleado(emp, TAM);
+                pause();
+
             break;
 
             case 3:
+
             break;
 
             case 4:
+
             break;
 
             case 5:
@@ -50,23 +55,23 @@ int main()
                 printf("Seguro que quiere salir s/n");
                 setbuf(stdin, NULL);
 //                getche(salir);
-                status = scanf("%c", &salir);
+                scanf(" %c", &salir);
+               // salir = getchar();
                 salir = tolower(salir);
 
-                while(status != 1){
+                while(!(salir == 's' || salir == 'n')){
+                    setbuf(stdout, NULL);
                     printf("Error Ingrese una opcion valida\n");
                     printf("Ingrese una opcion ");
-                    status = scanf("%c", &salir);
+                    //salir = getchar();
+                    scanf(" %c", &salir);
                     salir = tolower(salir);
-                    printf("\n");
+                    setbuf(stdout, NULL);
                 }
+
 
                     if(salir == 's')
                     getchar();
-
-
-
-
 
             break;
 
