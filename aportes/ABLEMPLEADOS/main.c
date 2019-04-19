@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <conio.h>
 #include "empleados.h"
 
 #define TAM 3
@@ -11,7 +12,7 @@
 int main()
 {
     char salir;
-    int status;
+    //int status;
     eEmpleado emp[TAM];
     //{{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
 
@@ -25,20 +26,22 @@ int main()
             case 1:
 
                 altaEmpleado(emp,TAM);
-                pause();
-               // system("psuse");
+              //  pause();
+                system("pause");
 
 
             break;
 
             case 2:
                 bajaEmpleado(emp, TAM);
-                pause();
+               // pause();
+               system("pause");
 
             break;
 
             case 3:
-
+               modificarEmpleado(emp, TAM);
+               system("pause");
             break;
 
             case 4:
@@ -53,25 +56,29 @@ int main()
 
 
                 printf("Seguro que quiere salir s/n");
-                setbuf(stdin, NULL);
-//                getche(salir);
-                scanf(" %c", &salir);
+                //setbuf(stdin, NULL);
+             //  getche(salir);
+               salir = getche();
                // salir = getchar();
                 salir = tolower(salir);
 
                 while(!(salir == 's' || salir == 'n')){
-                    setbuf(stdout, NULL);
+                   // setbuf(stdout, NULL);
+                    printf("\n\n");
                     printf("Error Ingrese una opcion valida\n");
-                    printf("Ingrese una opcion ");
+                    printf("Ingrese una opcion");
                     //salir = getchar();
-                    scanf(" %c", &salir);
+                    salir = getche();
                     salir = tolower(salir);
-                    setbuf(stdout, NULL);
+                    printf("\n\n");
+                   // setbuf(stdout, NULL);
                 }
 
 
-                    if(salir == 's')
-                    getchar();
+                      //pause();
+                    if(salir == 'n')
+                        printf("\n\n");
+
 
             break;
 

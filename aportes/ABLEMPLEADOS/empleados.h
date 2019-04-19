@@ -29,6 +29,7 @@ int buscarLibre(eEmpleado vec[],int tam);
 int buscarEmpleado(int legajo , eEmpleado vec[], int tam);
 void mostrarEmpleado(eEmpleado emp);
 void mostrarEmpleados(eEmpleado vec[], int tam);
+void modificarEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado emp[],int tam);
 int menuModificar();
 char confirmarCambios();

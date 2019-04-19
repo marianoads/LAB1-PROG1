@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <conio.h>
 #include "empleados.h"
 
 
@@ -27,13 +28,13 @@ char getSexo(){
     return sexo;
 }
 
-void pause(){
+/*void pause(){
 
     setbuf(stdin,NULL);
-    puts("Pulse enter para continuar");
+    printf("Press any key to continue. . . "); //para linux
     getchar();
 
-}
+}*/
 
 void mostrarEmpleado(eEmpleado emp){
 
@@ -237,7 +238,7 @@ void modificarEmpleado(eEmpleado vec[], int tam){
     int indice;
     int legajo;
     char salir;
-    int status;
+ //   int status;
     int nuevoLegajo;
     /*int nuevoSueldo;
     char nuevoNombre[20];*/
@@ -288,19 +289,24 @@ void modificarEmpleado(eEmpleado vec[], int tam){
                 break;
 
                 case 'e':
-                    printf("Seguro que desea salir? s/n");
-                    setbuf(stdin, NULL);
-//                getche(salir);
-                    status = scanf("%c", &salir);
+                    printf("Seguro que quiere salir s/n");
+
+                    salir = getche();
+
                     salir = tolower(salir);
 
-                while(status != 1){
+                   while(!(salir == 's' || salir == 'n')){
+
+                    printf("\n\n");
                     printf("Error Ingrese una opcion valida\n");
-                    printf("Ingrese una opcion ");
-                    status = scanf("%c", &salir);
+                    printf("Ingrese una opcion");
+
+                    salir = getche();
                     salir = tolower(salir);
-                    printf("\n");
-                }
+                    printf("\n\n");
+
+                 }
+
 
                 break;
 

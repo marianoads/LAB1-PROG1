@@ -53,12 +53,12 @@ int main()
 
         case 6:
             printf("\nConfirma salida s/n?: ");
-            //fflush(stdin);
-            //confirma = getche();
+            fflush(stdin);
+            confirma = getche();
 
-            setbuf(stdin, NULL);
+            //setbuf(stdin, NULL);
 
-            scanf("%c",&confirma);
+           // scanf("%c",&confirma);
 
             if( tolower(confirma) == 's')
             {
