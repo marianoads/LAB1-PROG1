@@ -21,7 +21,7 @@ int menu()
 {
     int opcion;
 
-    //system("clear");
+    system("clear");
     printf("  *** ABM Empleados ***\n\n");
     printf("1- Alta Empleado\n");
     printf("2- Baja Empleado\n");

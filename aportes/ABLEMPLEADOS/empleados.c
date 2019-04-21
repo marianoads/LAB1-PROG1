@@ -59,6 +59,7 @@ int menu(){
 
     int opcion;
 
+    system("cls");
     puts("***  ABM EMPLEADOS ***");
     puts("1- Alta Empleado");
     puts("2- Baja Empleado");
@@ -122,7 +123,8 @@ void altaEmpleado(eEmpleado emp[], int tam){
     }
     else{
 
-        puts("Ingrese legajo");
+        printf("Ingrese legajo ");
+
         legajo = getNumero();
 
         esta = buscarEmpleado(legajo, emp, tam);
@@ -135,30 +137,49 @@ void altaEmpleado(eEmpleado emp[], int tam){
 
             emp[indice].legajo = legajo;
 
-            puts("Ingrese nombre ");
+            printf("Ingrese nombre ");
             setbuf(stdin, NULL);
             fgets(emp[indice].nombre, sizeof(emp[indice].nombre), stdin);
             c = strlen(emp[indice].nombre);
             emp[indice].nombre[c-1] = '\0';
 
 
-            puts("Ingrese sexo m/f");
+            printf("Ingrese sexo m/f ");
             setbuf(stdin, NULL);
             emp[indice].sexo = getSexo();
 
-            puts("Ingrese sueldo");
+            printf("Ingrese sueldo ");
             scanf("%f",&emp[indice].sueldo);
 
-            puts("Ingrese Fecha de nacimiento");
-            puts("Dia");
+            puts("Ingrese Fecha de nacimiento\n");
+            printf("Dia ");
             emp[indice].fechaNac.dia = getNumero();
-            puts("Mes");
+
+            while(emp[indice].fechaNac.dia < 0 || emp[indice].fechaNac.dia > 32){
+
+                printf("Dia invalido: Ingrese dia ");
+                emp[indice].fechaNac.dia = getNumero();
+            }
+
+
+            printf("Mes ");
             emp[indice].fechaNac.mes = getNumero();
-            puts("Anio");
+
+            while(emp[indice].fechaNac.mes < 0 || emp[indice].fechaNac.mes > 13){
+                printf("Mes invalido: Ingrese mes ");
+                emp[indice].fechaNac.mes = getNumero();
+
+            }
+            printf("Anio ");
             emp[indice].fechaNac.anio = getNumero();
+            while( emp[indice].fechaNac.anio < 1900 ||  emp[indice].fechaNac.anio > 2000){
+
+                printf("Anio invalido: Ingrese anio ");
+                 emp[indice].fechaNac.anio = getNumero();
+            }
 
             emp[indice].ocupado = 1;
-            system("clear");
+
             puts("Alta empleado exitosa\n");
 
 

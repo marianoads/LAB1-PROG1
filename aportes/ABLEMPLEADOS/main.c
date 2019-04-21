@@ -48,10 +48,13 @@ int main()
 
             case 4:
                 ordenarEmpleados(emp, TAM, flag);
+                system("pause");
             break;
 
             case 5:
+
                 mostrarEmpleados(emp, TAM);
+                system("pause");
             break;
 
             case 6:
@@ -85,6 +88,8 @@ int main()
             break;
 
             default:
+                printf("Opcion Invalida \n\n");
+                system("pause");
 
             break;
         }
