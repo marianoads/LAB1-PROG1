@@ -9,9 +9,9 @@ typedef struct{
 
 typedef struct{
 
+    int legajo;
     char nombre[20];
     char sexo;
-    int legajo;
     float sueldo;
     int ocupado;
     int idSector;
@@ -23,7 +23,7 @@ typedef struct{
 typedef struct{
 
     int id;
-    char desc[31];
+    char descripcion[31];
 
 
 }eSector;
@@ -36,7 +36,8 @@ void inicializarEmpleados(eEmpleado vec[],int tam);
 void altaEmpleado(eEmpleado emp[], int tam);
 int buscarLibre(eEmpleado vec[],int tam);
 int buscarEmpleado(int legajo , eEmpleado vec[], int tam);
-void mostrarEmpleado(eEmpleado emp);
+void obtenerSector(eSector sector[], int tam, int id, char desc[]);
+void mostrarEmpleado(eEmpleado emp, eSector sectores, int tam );
 void mostrarEmpleados(eEmpleado vec[], int tam);
 void modificarEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado emp[],int tam);

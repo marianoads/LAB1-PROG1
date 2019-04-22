@@ -13,12 +13,23 @@ int main()
 {
     char salir;
     //int status;
-    eEmpleado emp[TAM];
-    //{{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
-    eSector sector[TAM];
+    eEmpleado emp[TAM]={
+        {1234, "Juan", 'm', 30000, 1, 1 ,{2, 11, 2000}},
+        {2222, "Ana", 'f', 32000, 1, 1,{1, 4, 1998}},
+        {2211, "Jorge", 'm', 28000, 1,3 ,{13 , 8 , 1995}}};
+
+    eSector sector[] = {
+
+        {1, "SISTEMAS"},
+        {2, "R.R.H.H"},
+        {3, "COMPRAS"},
+        {4, "VENTAS"},
+        {5, "LEGALES"}
+
+    };
     int flag = 0;
 
-   inicializarEmpleados(emp, TAM);
+   //inicializarEmpleados(emp, TAM);
 
 
     do{

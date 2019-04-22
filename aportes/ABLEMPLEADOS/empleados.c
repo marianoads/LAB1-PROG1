@@ -36,16 +36,18 @@ char getSexo(){
 
 }*/
 
-void mostrarEmpleado(eEmpleado emp){
+void mostrarEmpleado(eEmpleado emp, eSector sectores,int tam){
 
-
-    printf("\t%d\t%s\t%c\t%.2f\t%d-%d-%d\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo,emp.fechaNac.dia,emp.fechaNac.mes,emp.fechaNac.anio);
+    char nombreSector[20];
+    obtenerSector(sectores, tam , emp.idSector, sectores.descripcion[] );
+    printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\n\n");
+    printf("\t%d\t%s\t%c\t%.2f\t%d-%d-%d\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo,emp.fechaNac.dia,emp.fechaNac.mes,emp.fechaNac.anio);
 
 }
 void mostrarEmpleados(eEmpleado vec[], int tam){
     int contador = 0;
 
-    printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\n\n");
+   // printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\n\n");
     for(int i=0; i < tam; i++){
         if(vec[i].ocupado == 1){
             mostrarEmpleado(vec[i]);
@@ -400,6 +402,21 @@ void ordenarEmpleados(eEmpleado emp[],int tam,int flag){
             }
         }
 
+    }
+
+
+
+}
+
+void obtenerSector(eSector sectores[], int tam, int id, char desc[]){
+
+    for(int i = 0 ; i < tam ; i++){
+
+        if(sectores[i].id == id){
+
+            strcpy(desc, sectores[i].descripcion);
+            break;
+        }
     }
 
 
