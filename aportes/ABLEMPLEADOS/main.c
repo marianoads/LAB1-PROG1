@@ -6,6 +6,7 @@
 #include "empleados.h"
 
 #define TAM 3
+#define TAMSEC 5
 
 
 
@@ -13,12 +14,15 @@ int main()
 {
     char salir;
     //int status;
-    eEmpleado emp[TAM]={
+    eEmpleado emp[TAM]= {
+
         {1234, "Juan", 'm', 30000, 1, 1 ,{2, 11, 2000}},
         {2222, "Ana", 'f', 32000, 1, 1,{1, 4, 1998}},
-        {2211, "Jorge", 'm', 28000, 1,3 ,{13 , 8 , 1995}}};
+        {2211, "Jorge", 'm', 28000, 1,3 ,{13 , 8 , 1995}}
 
-    eSector sector[] = {
+    };
+
+    eSector sectores[] = {
 
         {1, "SISTEMAS"},
         {2, "R.R.H.H"},
@@ -27,9 +31,9 @@ int main()
         {5, "LEGALES"}
 
     };
-    int flag = 0;
+   int flag = 0;
 
-   //inicializarEmpleados(emp, TAM);
+   inicializarEmpleados(emp, TAM);
 
 
     do{
@@ -38,8 +42,8 @@ int main()
 
             case 1:
 
-                altaEmpleado(emp,TAM);
-              //  pause();
+                altaEmpleado(emp,TAM, sectores, TAMSEC);
+//                pause();
                 system("pause");
 
                 flag = 1;
@@ -64,7 +68,7 @@ int main()
 
             case 5:
 
-                mostrarEmpleados(emp, TAM);
+                mostrarEmpleados(emp, TAM, sectores , TAMSEC);
                 system("pause");
             break;
 

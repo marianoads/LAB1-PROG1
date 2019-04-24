@@ -16,10 +16,12 @@ char getSexo(){
 
     scanf(" %c", &sexo);
     sexo = tolower(sexo);
-    setbuf(stdin, NULL);
+    fflush(stdin);
+
 
     while(!(sexo == 'm' || sexo == 'f')){
 
+        fflush(stdin);
         puts("ERROR ingrese un sexo valido");
         scanf(" %c", &sexo);
         sexo = tolower(sexo);
@@ -36,21 +38,29 @@ char getSexo(){
 
 }*/
 
-void mostrarEmpleado(eEmpleado emp, eSector sectores,int tam){
+void mostrarEmpleado(eEmpleado emp, eSector sectores[],int tam){
 
     char nombreSector[20];
-    obtenerSector(sectores, tam , emp.idSector, sectores.descripcion[] );
-    printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\n\n");
-    printf("\t%d\t%s\t%c\t%.2f\t%d-%d-%d\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo,emp.fechaNac.dia,emp.fechaNac.mes,emp.fechaNac.anio);
+    int  consigio;
+
+
+    consigio = obtenerSector(sectores, tam , emp.idSector, nombreSector );
+    if(!consigio){
+        strcpy(nombreSector, "Sin Definir");
+    }
+
+
+    printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\tSector\n");
+    printf("\t%d\t%s\t%c\t%.2f\t%d-%d-%d\t%s\n\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo,emp.fechaNac.dia,emp.fechaNac.mes,emp.fechaNac.anio,nombreSector);
 
 }
-void mostrarEmpleados(eEmpleado vec[], int tam){
+void mostrarEmpleados(eEmpleado vec[], int tam, eSector sectores[], int tamsectores){
     int contador = 0;
 
    // printf("\tLegajo\tNombre\tSexo\tSueldo\tfecha de nacimiento\n\n");
     for(int i=0; i < tam; i++){
         if(vec[i].ocupado == 1){
-            mostrarEmpleado(vec[i]);
+            mostrarEmpleado(vec[i], sectores, tam);
             contador++;
         }
     }
@@ -110,7 +120,7 @@ void inicializarEmpleados(eEmpleado emp[],int tam){
     }
 }
 
-void altaEmpleado(eEmpleado emp[], int tam){
+void altaEmpleado(eEmpleado emp[], int tam, eSector sector[], int tamsectores){
 
     int legajo;
     int indice;
@@ -133,21 +143,21 @@ void altaEmpleado(eEmpleado emp[], int tam){
 
         if(esta != -1){
             printf("Existe un empleado de legajo %d en el sistema", legajo);
-            mostrarEmpleado(emp[esta]);
+            mostrarEmpleado(emp[esta], sector , tamsectores);
         }
         else{
 
             emp[indice].legajo = legajo;
 
             printf("Ingrese nombre ");
-            setbuf(stdin, NULL);
+            fflush(stdin);
             fgets(emp[indice].nombre, sizeof(emp[indice].nombre), stdin);
             c = strlen(emp[indice].nombre);
             emp[indice].nombre[c-1] = '\0';
 
 
             printf("Ingrese sexo m/f ");
-            setbuf(stdin, NULL);
+            fflush(stdin);
             emp[indice].sexo = getSexo();
 
             printf("Ingrese sueldo ");
@@ -157,7 +167,7 @@ void altaEmpleado(eEmpleado emp[], int tam){
             printf("Dia ");
             emp[indice].fechaNac.dia = getNumero();
 
-            while(emp[indice].fechaNac.dia < 0 || emp[indice].fechaNac.dia > 32){
+            while(emp[indice].fechaNac.dia <=0 || emp[indice].fechaNac.dia > 32){
 
                 printf("Dia invalido: Ingrese dia ");
                 emp[indice].fechaNac.dia = getNumero();
@@ -167,7 +177,7 @@ void altaEmpleado(eEmpleado emp[], int tam){
             printf("Mes ");
             emp[indice].fechaNac.mes = getNumero();
 
-            while(emp[indice].fechaNac.mes < 0 || emp[indice].fechaNac.mes > 13){
+            while(emp[indice].fechaNac.mes <= 0 || emp[indice].fechaNac.mes >= 13){
                 printf("Mes invalido: Ingrese mes ");
                 emp[indice].fechaNac.mes = getNumero();
 
@@ -179,6 +189,9 @@ void altaEmpleado(eEmpleado emp[], int tam){
                 printf("Anio invalido: Ingrese anio ");
                  emp[indice].fechaNac.anio = getNumero();
             }
+
+            printf("Ingrese Sector ");
+            emp[indice].idSector = getNumero();
 
             emp[indice].ocupado = 1;
 
@@ -408,18 +421,21 @@ void ordenarEmpleados(eEmpleado emp[],int tam,int flag){
 
 }
 
-void obtenerSector(eSector sectores[], int tam, int id, char desc[]){
+int obtenerSector(eSector sectores[], int tam, int id, char desc[]){
+
+    int todoOk = 0;
 
     for(int i = 0 ; i < tam ; i++){
 
         if(sectores[i].id == id){
 
             strcpy(desc, sectores[i].descripcion);
+            todoOk = 1;
             break;
         }
     }
 
-
+    return todoOk;
 
 }
 
