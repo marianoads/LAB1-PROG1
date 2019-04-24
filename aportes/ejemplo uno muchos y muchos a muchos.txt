@@ -1,0 +1,73 @@
+void listadoEmpleadoPorSector (eEmpleado empleados[], eSector sectores[], int cantEmp, int cantSector)
+{
+    int i, j;
+
+    printf("\n****** LISTADO DE EMPLEADOS ******\n\n");
+
+
+  for( i = 0; i < cantSector; i++)
+  {
+        for( j = 0; j<cantEmp; j++ ) // recorro los empleados
+        {
+
+         if( empleados[j].isEmpty == 0 && sectores[i].id == empleados[j].sectorId )  // busco la interseccion
+         {
+			printf("%d %s %s", empleados[j].legajo, empleados[j].nombre, sectores[i].descripcion );
+         }
+        } //Cierre 2do for
+  } // cierre 1er for
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo almuerzos[], int cantEmp, int cantMenu )
+{
+    int i, j, k;
+
+    printf("\n****** LISTADO DE MENU POR EMPLEADOS ******\n\n");
+
+
+  for( i = 0; i < cantMenu; i++)
+  {
+        for( j = 0; j < (cantEmp * cantMenu); j++ ) // recorro los almuerzos
+        {
+         if( menues[i].id == almuerzos[j].menuId )  // busco la interseccion
+         {
+			for( k = 0; k < cantEmp; k++ ){ // recorro los empleados
+				if( empleados[k].isEmpty == 0 && almuerzos[j].empleadoLegajo == empleados[k].legajo ){
+					printf("%d %s %s", empleados[k].legajo, empleados[k].nombre, menues[i].descripcion );
+				}
+				
+			}
+         }
+        } //Cierre 2do for
+  } // cierre 1er for
+
+}
+
+
+
+
+
+
+
+

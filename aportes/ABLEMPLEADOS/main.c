@@ -31,9 +31,9 @@ int main()
         {5, "LEGALES"}
 
     };
-   int flag = 0;
+  // int flag = 0;
 
-   inicializarEmpleados(emp, TAM);
+   //inicializarEmpleados(emp, TAM);
 
 
     do{
@@ -46,7 +46,7 @@ int main()
 //                pause();
                 system("pause");
 
-                flag = 1;
+//                flag = 1;
             break;
 
             case 2:
@@ -62,7 +62,7 @@ int main()
             break;
 
             case 4:
-                ordenarEmpleados(emp, TAM, flag);
+                ordenarEmpleados(emp, TAM); //flag
                 system("pause");
             break;
 

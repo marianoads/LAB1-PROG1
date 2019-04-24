@@ -41,6 +41,6 @@ void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tam );
 void mostrarEmpleados(eEmpleado vec[], int tam, eSector sectores[], int tamsectores );
 void modificarEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado emp[],int tam);
-void ordenarEmpleados(eEmpleado emp[],int tam, int flag);
+void ordenarEmpleados(eEmpleado emp[],int tam);
 int menuModificar();
 char confirmarCambios();

@@ -1,0 +1,48 @@
+
+
+
+eEmpleado |	 eAlmuerzo 	| eMenu
+
+1...*         empleadolegajo	   1...*
+		menucodigo
+		fecha
+
+
+
+
+array empleado 100 , eMenu 10 , eAlmuerzo 1000
+
+for(emoleados) i
+ for(eAlmuerzo) j
+	if(legajo empleado == empleadoalmuerzo)
+	FOR(MENU)K   
+		
+
+		pf() 
+
+
+empleados[i].legajo = legajoAux+1;
+legajoAux++;
+
+
+eSector sectores[5];
+
+int sector(eSector sectores[]);/prototipo
+in(sectores, CANT_SECT); //llamada 
+
+void init(eSector sectores, int cantidad){
+
+	int i;
+	eSector sec[] = {};
+
+	for(i = o; i < cantidad ; i++){
+
+		sectores[i].id = sec[i].id;
+		strcpy(Descripci
+	
+
+	}
+
+
+
+

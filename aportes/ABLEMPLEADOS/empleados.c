@@ -393,15 +393,15 @@ char confirmarCambios(){
 
 }
 
-void ordenarEmpleados(eEmpleado emp[],int tam,int flag){
+void ordenarEmpleados(eEmpleado emp[],int tam){
 
     eEmpleado auxEmp;
 
-    if(flag == 0){
+    //if(flag == 0){
 
-        printf("No se pueden ordenar los empleados\n\n");
-    }
-    else{
+     //   printf("No se pueden ordenar los empleados\n\n");
+   // }
+   // else{
 
         for(int i = 0 ; i < tam-1; i++){
             for(int j = i+1; j < tam ; j++){
@@ -419,7 +419,7 @@ void ordenarEmpleados(eEmpleado emp[],int tam,int flag){
 
 
 
-}
+
 
 int obtenerSector(eSector sectores[], int tam, int id, char desc[]){
 
