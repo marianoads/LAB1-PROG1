@@ -55,6 +55,7 @@ typedef struct{
 
 
 void inicializarSector(eSector sectores[], int tam);
+void inicializarMenues(eMenu  menu[], int tam);
 
 int main()
 {
@@ -64,11 +65,19 @@ int main()
     eMenu menues[TAM_MENUES];
 
     inicializarSector(sectores, TAM_SEC);
+    inicializarMenues(menues, TAM_MENUES);
 
-    for(int i = 0 ; i < TAM_SEC; i++){
+ //  do{
+
+
+
+
+  //  }while();
+
+   /* for(int i = 0 ; i < TAM_SEC; i++){
 
         printf("-- %s\n",sectores[i].descripcion);
-    }
+    }*/
 
 
 
@@ -88,11 +97,50 @@ void inicializarSector(eSector sectores[], int tam){
 
     for(int i = 0; i < tam ; i++ ){
 
-        sectores[i].id = vec[i].id;
-        strcpy(sectores[i].descripcion, vec[i].descripcion);
+        sectores[i] = vec[i];
 
 
     }
 }
+
+void inicializarMenues(eMenu  menu[], int tam){
+
+    eMenu vec[] = {
+
+        1, "Sopa",100,
+        2, "Ensalada" ,150,
+        3, "Milaneasa" ,95
+
+    };
+
+    for(int i = 0 ; i < tam ; i++){
+
+        menu[i] = vec[i];
+    }
+
+
+}
+
+void inicializarEmpleados(eEmpleado empleado[] , int tam){
+
+    for(int i = 0; i < tam ; i++){
+
+        empleado[i].isEmpty  = 1;
+
+    }
+}
+
+void altaEmpleado(eEmpleado empleado , int tamEmpleado, eSector sector. int tamSector){
+
+//buscar lugar en el sistema o verctor
+
+
+
+
+
+
+}
+
+
 
 
