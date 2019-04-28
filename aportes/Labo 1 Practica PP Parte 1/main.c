@@ -272,7 +272,7 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
 
                 }
 
-                printf("Ingrese Fecha de ingreso\n");
+                printf("\n\nIngrese Fecha de ingreso\n");
 
                 printf("Ingrese dia ");
                 scanf("%d", &empleado[indice].fechaIngreso.dia);
@@ -313,7 +313,7 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
 
 void asignarLegajo(eEmpleado empleado[] , int tam, int indice){
 
-    int legajo = 0;
+    int legajo = 1000;
 
 
 
@@ -834,6 +834,7 @@ char opcionSalir(){
     printf("Seguro que quiere salir s/n");
 
     // salir = getche();
+    setbuf(stdin, NULL);
     salir = getchar();
 
     salir = tolower(salir);
