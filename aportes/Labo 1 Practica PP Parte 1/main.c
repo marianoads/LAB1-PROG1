@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <conio.h>
+//#include <conio.h>
 
 
 #define TAM_SEC 5
@@ -95,7 +95,8 @@ int main()
 
             case 1:
                 altaEmpleado(empleado, TAM_EMP , sectores , TAM_SEC);
-                system("pause");
+              //  system("pause");
+              pause();
 
 
             break;
@@ -113,7 +114,8 @@ int main()
 
             case 4:
                 listarEmpleados(empleado, TAM_EMP, sectores, TAM_SEC);
-                system("pause");
+               // system("pause");
+               pause();
             break;
 
             case 5:
@@ -299,6 +301,7 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
                 }
 
                asignarLegajo(empleado , tamEmpleado, indice);
+               empleado[indice].isEmpty = 0;
 
                 printf("La alta se ha hecho exitosamente\n");
 
@@ -545,7 +548,7 @@ void modificarNombre(eEmpleado empleado[], int tam ){
 
             printf("Opcion invalida ingrese [s/n] ");
             scanf(" %c", &respuesta);
-            respuesta = towlower(respuesta);
+            respuesta = tolower(respuesta);
        }
 
        if(respuesta == 's'){
@@ -598,7 +601,7 @@ void modificarApellido(eEmpleado empleado[], int tam){
 
             printf("Opcion invalida ingrese [s/n] ");
             scanf(" %c", &respuesta);
-            respuesta = towlower(respuesta);
+            respuesta = tolower(respuesta);
        }
 
        if(respuesta == 's'){
@@ -830,7 +833,8 @@ char opcionSalir(){
     char salir;
     printf("Seguro que quiere salir s/n");
 
-    salir = getche();
+    // salir = getche();
+    salir = getchar();
 
     salir = tolower(salir);
 
@@ -840,7 +844,8 @@ char opcionSalir(){
         printf("Error Ingrese una opcion valida\n");
         printf("Ingrese una opcion");
 
-        salir = getche();
+//        salir = getche();
+        salir = getchar();
         salir = tolower(salir);
         printf("\n\n");
 
@@ -850,7 +855,7 @@ char opcionSalir(){
 
 void listarEmpleados(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector){
 
-    eEmpleado auxEmpleado;
+   /* eEmpleado auxEmpleado;
 
     for(int i = 0; i < tamEmpleado-1; i++){
         for(int j = i+1 ; j < tamEmpleado; j++){
@@ -862,11 +867,11 @@ void listarEmpleados(eEmpleado empleado[], int tamEmpleado, eSector sector[], in
 
             }
         }
-    }
+    }*/
 
-        printf("\tLEGAJO\t\tNOMBRE\t\tAPELLIDO\tSEXO\tSALARIO\tFECHA DE INGRESO\tSECTOR\n\n");
+        printf("LEGAJO NOMBRE APELLIDO SEXO SALARIO FECHA DE INGRESO\tSECTOR\n\n");
         for(int i=0; i < tamEmpleado; i++){
-            if(empleado[i].isEmpty == 1){
+            if(empleado[i].isEmpty == 0){
                 mostrarEmpleado(empleado[i], sector, tamSector);
 
             }
@@ -890,7 +895,7 @@ void mostrarEmpleado(eEmpleado empleado, eSector sector[], int tamSector){
     }
 
    // ;
-    printf("\t%d\t\t%s\t\t%s\t%c\t%f\t%d--%d--%d\t%s\n",empleado.legajo, empleado.nombre, empleado.apellido,empleado.sexo,empleado.salario,empleado.fechaIngreso.dia,empleado.fechaIngreso.mes,empleado.fechaIngreso.anio,descripcionSector);
+    printf("%d   %s   %s   %c  %.0f  %d--%d--%d  %s\n",empleado.legajo, empleado.nombre, empleado.apellido,empleado.sexo,empleado.salario,empleado.fechaIngreso.dia,empleado.fechaIngreso.mes,empleado.fechaIngreso.anio,descripcionSector);
 }
 
 int asignarSector(eSector sector[], int tamSector, char descripcion[], int idSector){
