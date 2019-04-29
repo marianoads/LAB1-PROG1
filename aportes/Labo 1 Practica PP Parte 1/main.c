@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-//#include <conio.h>
+#include <conio.h>
 
 
 #define TAM_SEC 5
@@ -57,7 +57,7 @@ typedef struct{
 }eMenu;
 
 int menuEmpleado();
-void pause();
+//void pause();
 void inicializarSector(eSector sectores[], int tam);
 void inicializarMenues(eMenu  menu[], int tam);
 void inicializarEmpleados(eEmpleado empleado[] , int tam);
@@ -77,28 +77,33 @@ void modificarSexo(eEmpleado empleado[], int tam);
 void bajaEmpleado(eEmpleado empleado[] , int tam);
 void mostrarEmpleado(eEmpleado empleado, eSector sector[], int tamSector);
 void listarEmpleados(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
+void listarEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
 
 int main()
 {
 
-    eEmpleado empleado[TAM_EMP];
+    eEmpleado empleado[TAM_EMP] = {
+        {1001, "GILBERTO","CALDERON",'m', 120000,{02,11,2000},1,0},
+         {1002, "PEDRO","SANCHEZ",'m', 120000,{1,4,1998},1,0},
+          {1003, "MARIA","BALVUENA",'f', 120000,{02,12,2000},4,0}
+
+
+
+    };
     eSector sectores[TAM_SEC];
     eMenu menues[TAM_MENUES];
     char salir = 'n';
 
     inicializarSector(sectores, TAM_SEC);
     inicializarMenues(menues, TAM_MENUES);
-    inicializarEmpleados(empleado , TAM_EMP);
+    //inicializarEmpleados(empleado , TAM_EMP);
 
     do{
         switch(menuEmpleado()){
 
             case 1:
                 altaEmpleado(empleado, TAM_EMP , sectores , TAM_SEC);
-              //  system("pause");
-              pause();
-
-
+                system("pause");
             break;
 
             case 2:
@@ -114,12 +119,18 @@ int main()
 
             case 4:
                 listarEmpleados(empleado, TAM_EMP, sectores, TAM_SEC);
-               // system("pause");
-               pause();
+                system("pause");
+
             break;
 
             case 5:
+                listarEmpleadosPorSector(empleado, TAM_EMP, sectores, TAM_SEC);
+                system("pause");
+            break;
+
+            case 6:
                 salir = opcionSalir();
+
             break;
 
             default:
@@ -143,11 +154,12 @@ int menuEmpleado(){
         int opcion;
 
 
-
+        puts("-------------------------EMPLEADOS-----------------------------\n");
         puts("1- Alta Empleado");
         puts("2- Baja Empleado");
         puts("3- Modificar Empleado");
         puts("4- Listar Empleados");
+        puts("5- Listar Empleado Por Sector");
         puts("6- Salir\n\n\n");
 
         printf("Ingrese Una Opcion ");
@@ -235,6 +247,7 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
                     empleado[indice].nombre[strlen(empleado[indice].nombre)-1] = '\0';
 
                 }
+                strlwr(empleado[indice].nombre);
 
                 printf("Ingrese Apellido ");
                 fgets(empleado[indice].apellido , sizeof(empleado[indice].apellido)-2, stdin);
@@ -248,17 +261,20 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
                     empleado[indice].apellido[strlen(empleado[indice].apellido)-1] = '\0';
 
                 }
+                strlwr(empleado[indice].apellido);
 
                 printf("Ingrese Sexo m/f");
                 setbuf(stdin, NULL);
-                scanf("%c", &empleado[indice].sexo);
+                empleado[indice].sexo = getchar();
+                empleado[indice].sexo = tolower(empleado[indice].sexo);
 
                 while(!(empleado[indice].sexo == 'm' || empleado[indice].sexo == 'f')){
 
                     printf("Error: ingrese solo [m]/[f]\n");
                     printf("Ingrese Sexo ");
                     setbuf(stdin, NULL);
-                    scanf("%c", &empleado[indice].sexo);
+                    empleado[indice].sexo = getchar();
+                    empleado[indice].sexo = tolower(empleado[indice].sexo);
                 }
 
                 printf("Ingrese Salario ");
@@ -271,6 +287,17 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
                     scanf("%f", &empleado[indice].salario);
 
                 }
+                puts("\nIngrese sector de trabajo");
+                puts("1- RRHH, 2- COMPRAS, 3- VENTAS, 4- SISTEMAS, 5- LEGALES");
+
+                scanf("%d", &empleado[indice].idSector);
+
+                while(empleado[indice].idSector < 1 || empleado[indice].idSector > 5){
+                   printf("Error sector no valido, Intente de nuevo ");
+                   scanf("%d", &empleado[indice].idSector);
+
+                }
+
 
                 printf("\n\nIngrese Fecha de ingreso\n");
 
@@ -404,13 +431,13 @@ void bajaEmpleado(eEmpleado empleado[] , int tam){
 
 }
 
-void pause(){
+/*void pause(){
 
         printf("Press any key to continue. . .");
         setbuf(stdin , NULL);
         getchar();
 
-}
+}*/
 
 int buscarEmpleado(eEmpleado empleado[], int tamEmpleado, int legajo){
 
@@ -501,14 +528,14 @@ int menuModificar(){
     system("cls");
     int opcion;
 
-    printf("-------Modificar Empleados-------\n");
-    printf("1- Modificar Nombre\n");
-    printf("2- Modificar Apellido\n");
-    printf("3- Modificar Salario\n");
-    printf("4- Modificar Sexo\n");
-    printf("5- Modificar Fecha De Ingreso\n");
-    printf("6- Modificar Sector\n");
-    printf("7- Salir\n\n");
+    puts("-------------------------MODIFICAR EMPLEADOS-----------------------------\n");
+    puts("1- Modificar Nombre");
+    puts("2- Modificar Apellido");
+    puts("3- Modificar Salario");
+    puts("4- Modificar Sexo");
+    puts("5- Modificar Fecha De Ingreso");
+    puts("6- Modificar Sector");
+    puts("7- Salir\n\n");
 
     printf("Ingrese una opcion ");
     scanf("%d", &opcion);
@@ -534,6 +561,7 @@ void modificarNombre(eEmpleado empleado[], int tam ){
     }else{
 
        printf("Ingrese nuevo nombre: ");
+       fflush(stdin);
        fgets(nombre, sizeof(nombre)-2, stdin);
        nombre[strlen(nombre)-1] = '\0';
 
@@ -555,7 +583,7 @@ void modificarNombre(eEmpleado empleado[], int tam ){
 
             strcpy(empleado[indice].nombre, nombre);
 
-            printf("Se ha cambiado el nombre del empleado %d", legajo);
+            printf("Se ha cambiado el nombre del empleado %d\n", legajo);
        }else{
 
             printf("no se han realizado ningun cambio\n");
@@ -587,6 +615,7 @@ void modificarApellido(eEmpleado empleado[], int tam){
     }else{
 
        printf("Ingrese nuevo apellido: ");
+       fflush(stdin);
        fgets(apellido, sizeof(apellido)-2, stdin);
        apellido[strlen(apellido)-1] = '\0';
 
@@ -666,6 +695,7 @@ void modificarSexo(eEmpleado empleado[], int tam){
     char respuesta;
 
     printf("Ingrese Legajo ");
+
     scanf("%d", &legajo);
 
     indice = buscarEmpleado(empleado, tam , legajo);
@@ -675,11 +705,12 @@ void modificarSexo(eEmpleado empleado[], int tam){
         printf("No existe el empleado de legajo en el sistema %d\n",legajo);
     }else{
 
-        printf("Ingrese Sexo: s/n");
+        printf("Ingrese Sexo: m/f");
+        fflush(stdin);
         scanf(" %c", &sexo);
         sexo = tolower(sexo);
 
-        while(!(sexo == 's' || sexo == 'n')){
+        while(!(sexo == 'm' || sexo == 'f')){
 
             printf("Error ingrese una opcion valida: s/n");
             scanf(" %c", &sexo);
@@ -833,9 +864,9 @@ char opcionSalir(){
     char salir;
     printf("Seguro que quiere salir s/n");
 
-    // salir = getche();
     setbuf(stdin, NULL);
-    salir = getchar();
+    salir = getche();
+ //   salir = getchar();
 
     salir = tolower(salir);
 
@@ -845,12 +876,13 @@ char opcionSalir(){
         printf("Error Ingrese una opcion valida\n");
         printf("Ingrese una opcion");
 
-//        salir = getche();
-        salir = getchar();
+        salir = getche();
+        //salir = getchar();
         salir = tolower(salir);
         printf("\n\n");
 
     }
+    printf("\n\n");
         return salir;
 }
 
@@ -914,4 +946,20 @@ int asignarSector(eSector sector[], int tamSector, char descripcion[], int idSec
     }
 
     return oK;
+}
+
+void listarEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector){
+
+    system("clear");
+    for(int i = 0 ; i < tamSector; i++){
+
+            printf("Sector: %s\n\n",sector[i].descripcion);
+        for(int j = 0 ; j < tamEmpleado; j++ ){
+            if(empleado[j].isEmpty == 0 && empleado[j].idSector == sector[i].id){
+
+                printf("  %d   %s   %s\n\n",empleado[j].legajo, empleado[j].nombre, empleado[j].apellido);
+            }
+        }
+    }
+
 }
