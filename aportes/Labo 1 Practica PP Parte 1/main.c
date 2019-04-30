@@ -44,6 +44,7 @@ typedef struct{
     int codigoAlmuerzo;
     int codigoMenu;
     int legajoEmpleado;
+    int isEmpty;
     eFecha fecha;
 
 
@@ -104,6 +105,7 @@ int main()
 
     inicializarSector(sectores, TAM_SEC);
     inicializarMenues(menues, TAM_MENUES);
+    inicializarAlmuerzos(almuerzos, TAM_ALMUERZOS);
    // inicializarEmpleados(empleado , TAM_EMP);
 
     do{
@@ -232,6 +234,14 @@ void inicializarEmpleados(eEmpleado empleado[] , int tam){
 
     }
 }
+
+void inicializarAlmuerzos(eAlmuerzo almuerzo , int tam){
+
+    for(int i = 0; i < tam ; i++){
+        almuerzo[i].isEmpty = 1;
+    }
+}
+
 
 void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int tamSector){
 
@@ -1026,5 +1036,89 @@ void listarCantidadEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSe
 
 }
 
+void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado ,eSector sector[] ,int tamSector, eMenu menu[], int tamMenu, eAlmuerzo almuerzo[], int tamAlmuerzo){
+
+    int legajo;
+    int ok;
+    int indice;
+    int codigoMenu;
+
+        indice = buscarEspacioEnElSistema(almuerzo, tamAlmuerzo);
+
+        if(indice == -1){
+            printf("No hay espacio en el sistema\n\n");
+        }else{
+
+            listarEmpleados(empleado, tamEmpleado, sector, tamSector);
+
+            printf("Ingrese legajo: ");
+            scanf("%d", &legajo);
+
+            ok = buscarEmpleado(empleado, tamEmpleado , legajo);
+
+            while(ok == -1){
+
+                printf("No existe el empleado de legajo %d\n\n", legajo);
+                printf("Ingrese legajo: ");
+                scanf("%d", &legajo);
+                oK = buscarEmpleado(empleado, tamEmpleado , legajo);
+            }
+
+            system("cls");
+            printf("\n");
+            listarMenues(menu, tamMenu);
+
+            printf("Ingrese codigo de menu ");
+            scanf("%d", &codigoMenu);
+
+            ok = buscarMenu(menu, tamMenu, codigoMenu);
+
+            while(ok == -1){
+                printf("Error no existe el menu dicho codigo sea %d\n\n",codigoMenu);
+                printf("Ingrese codigo de menu ");
+                scanf("%d", &codigoMenu);
+                ok = buscarMenu(menu, tamMenu, codigoMenu);
+            }
+
+
+            printf("Ingrese Fecha: \n\n");
+            printf("Ingrese Dia: ");
+            scanf("%d", &almuerzo.fecha.dia);
+            printf("Ingrese Mes: ");
+            scanf("");
+        }
+
+
+
+
+
+
+}
+
+void listarMenues(eMenu menu[], int tamMenu){
+
+        printf("CODIGO\tDESCRIPCION\tIMPORTE\n\n");
+    for(int i = 0 ; i < tamMenu; i++){
+
+        printf("%d\t%s\t%d\n\n",menu[i].codigoMenu, menu[i].descripcion, menu[i].importe);
+    }
+
+}
+
+int buscarMenu(eMenu menu, int tamMenu, int codigoMenu){
+
+    int ok = -1;
+    for(int i = 0 ; i < tamMenu ; i++){
+
+        if(codigoMenu == menu[i].codigoMenu){
+
+            ok = 1;
+            break;
+        }
+
+    }
+
+    return ok;
+}
 
 

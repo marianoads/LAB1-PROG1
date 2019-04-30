@@ -44,7 +44,7 @@ B)	Modificar: Se ingresará el Código de Empleado, permitiendo en un submenú modi
 •	Fecha de ingreso
 •	Sector
 B)	Baja:  Se ingresará el Código de Empleado y se realizará una baja lógica.
-C)	Listar: Hacer un único listado de todos los Empleados ordenados por apellido (ascendente) y nombre (ascendente).
+C)	//Listar: Hacer un único listado de todos los Empleados ordenados por apellido (ascendente) y nombre (ascendente).
 
 ALMUERZOS: Se dará de alta cada ocurrencia de Almuerzo, relacionando Menu – Empleado, Fecha y Codigo de Almuerzo.
 
