@@ -8,6 +8,7 @@
 #define TAM_SEC 5
 #define TAM_EMP 3
 #define TAM_MENUES 3
+#define TAM_ALMUERZOS (TAM_EMP * TAM_MENUES)
 
 
 
@@ -42,7 +43,7 @@ typedef struct{
 typedef struct{
     int codigoAlmuerzo;
     int codigoMenu;
-    int LegajoEmpleado;
+    int legajoEmpleado;
     eFecha fecha;
 
 
@@ -78,6 +79,7 @@ void bajaEmpleado(eEmpleado empleado[] , int tam);
 void mostrarEmpleado(eEmpleado empleado, eSector sector[], int tamSector);
 void listarEmpleados(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
 void listarEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
+void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo almuerzos[], int cantEmp, int cantMenu );
 
 int main()
 {
@@ -90,12 +92,34 @@ int main()
 
 
     };
-    eSector sectores[TAM_SEC];
-    eMenu menues[TAM_MENUES];
+    eSector sectores[TAM_SEC] =  {
+                    {1,"R.R.H.H"},
+                    {2, "COMPRAS"},
+                    {3, "VENTAS"},
+                    {4,"SISTEMAS"},
+
+                    {5,"LEGALES"}
+    };
+    eMenu menues[TAM_MENUES] =  {
+
+        {1, "Sopa",100},
+        {2, "Ensalada" ,150},
+        {3, "Milaneasa" ,95},
+
+    };
+
+    eAlmuerzo almuerzos[] = {
+        {0001, 1, 1001, {02, 11 , 2012}},
+        {0002, 2, 1002, {04, 12, 2014}},
+        {0003, 3, 1003, {30, 7, 2019}}
+
+
+    };
+
     char salir = 'n';
 
-    inicializarSector(sectores, TAM_SEC);
-    inicializarMenues(menues, TAM_MENUES);
+   // inicializarSector(sectores, TAM_SEC);
+   // inicializarMenues(menues, TAM_MENUES);
     //inicializarEmpleados(empleado , TAM_EMP);
 
     do{
@@ -129,8 +153,13 @@ int main()
             break;
 
             case 6:
-                salir = opcionSalir();
+                listadoMenuPorEmpleado(empleado , menues, almuerzos, TAM_EMP, TAM_MENUES );
+                system("pause");
 
+            break;
+
+            case 7:
+                salir = opcionSalir();
             break;
 
             default:
@@ -160,7 +189,8 @@ int menuEmpleado(){
         puts("3- Modificar Empleado");
         puts("4- Listar Empleados");
         puts("5- Listar Empleado Por Sector");
-        puts("6- Salir\n\n\n");
+        puts("6- Listar Menu Por Empleados");
+        puts("7- Salir\n\n\n");
 
         printf("Ingrese Una Opcion ");
         scanf("%d", &opcion);
@@ -963,3 +993,29 @@ void listarEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sec
     }
 
 }
+
+void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo almuerzos[], int tamEmpleados, int tamMenues )
+{
+    int i, j, k;
+
+    printf("\n****** LISTADO DE MENU POR EMPLEADOS ******\n\n");
+
+
+  for( i = 0; i < tamMenues; i++)
+  {
+        for( j = 0; j < (tamEmpleados * tamMenues); j++ ) // recorro los almuerzos
+        {
+         if( menues[i].codigoMenu == almuerzos[j].codigoMenu )  // busco la interseccion
+         {
+			for( k = 0; k < tamEmpleados; k++ ){ // recorro los empleados
+				if( empleados[k].isEmpty == 0 && almuerzos[j].legajoEmpleado == empleados[k].legajo ){
+					printf("%d %s %s\n", empleados[k].legajo, empleados[k].nombre, menues[i].descripcion );
+				}
+
+			}
+         }
+        } //Cierre 2do for
+  } // cierre 1er for
+
+}
+
