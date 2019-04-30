@@ -16,7 +16,7 @@ Una empresa necesita administrar los 20 almuerzos de su comedor en planta, para 
 •	idSector (debe existir) Validar
 •	isEmpty Validar
 
-Almuerzo:
+	Almuerzo:
 •	Codigo de almuerzo (autoincremental)
 •	Codigo de menu (debe existir) Validar
 •	Legajo de empleado (debe existir) Validar
@@ -26,7 +26,7 @@ Almuerzo:
 •	id (autoincremental)
 •	Descripción (máximo 51 caracteres)  Validar
 
-MENUES: 
+	MENUES: 
 A)	Altas: No es necesario el ingreso de todos los menues.
 B)	Modificar: Se ingresará el código de menu, permitiendo en un submenú modificar:
 •	Descripción
@@ -34,7 +34,7 @@ B)	Modificar: Se ingresará el código de menu, permitiendo en un submenú modifica
 B)	Baja:  Se ingresará el código de menu y se realizará una baja lógica.
 C)	Listar: Hacer un único listado de todos los menues ordenados por importe (descendente) y descripcion (ascendente).
 
-EMPLEADOS: 
+	EMPLEADOS: 
 A)	Altas: No es necesario el ingreso de todos los empleados.
 B)	Modificar: Se ingresará el Código de Empleado, permitiendo en un submenú modificar:
 •	Apellido

@@ -57,7 +57,7 @@ typedef struct{
     int importe;
 }eMenu;
 
-int menuEmpleado();
+int menuComedor();
 //void pause();
 void inicializarSector(eSector sectores[], int tam);
 void inicializarMenues(eMenu  menu[], int tam);
@@ -107,7 +107,7 @@ int main()
    // inicializarEmpleados(empleado , TAM_EMP);
 
     do{
-        switch(menuEmpleado()){
+        switch(menuComedor()){
 
             case 1:
                 altaEmpleado(empleado, TAM_EMP , sectores , TAM_SEC);
@@ -142,7 +142,7 @@ int main()
 
             break;
 
-            case 7:
+            case 8:
                 salir = opcionSalir();
             break;
 
@@ -161,22 +161,25 @@ int main()
 
     return 0;
 }
-int menuEmpleado(){
+int menuComedor(){
 
         system("clear");
         int opcion;
 
 
-        puts("-------------------------EMPLEADOS-----------------------------\n");
+        puts("\t\t****EMPLEADOS****\n");
         puts("1- Alta Empleado");
         puts("2- Baja Empleado");
         puts("3- Modificar Empleado");
         puts("4- Listar Empleados");
         puts("5- Listar Empleado Por Sector");
-        puts("6- Listar Menu Por Empleados");
-        puts("7- Salir\n\n\n");
+        puts("6- Listar Menu Por Empleados\n");
+        puts("\t\t****Almuerzos****\n");
+        puts("7- Alta Almuerzo\n");
 
-        printf("Ingrese Una Opcion ");
+
+
+        printf("Ingrese Una Opcion O Pulse 8 Para Salir ");
         scanf("%d", &opcion);
 
         return opcion;
@@ -1002,4 +1005,26 @@ void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo a
   } // cierre 1er for
 
 }
+
+void listarCantidadEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector){
+
+    int cont;
+
+    for(int i = 0 ; i < tamEmpleado ; i++){
+
+        cont = 0;
+        printf("Sector: %s: ", sector[i].descripcion);
+        for(int j = 0; j < tamSector ; j++){
+
+            if(empleado[j].idSector == sector[j].id && empleado[j].isEmpty == 0){
+                cont++;
+            }
+        }
+        printf("%d", cont);
+    }
+
+
+}
+
+
 
