@@ -85,28 +85,12 @@ int main()
 {
 
     eEmpleado empleado[TAM_EMP] = {
-        {1001, "GILBERTO","CALDERON",'m', 120000,{02,11,2000},1,0},
-         {1002, "PEDRO","SANCHEZ",'m', 120000,{1,4,1998},1,0},
-          {1003, "MARIA","BALVUENA",'f', 120000,{02,12,2000},4,0}
-
-
-
+        {1001, "gilberto", "calderon", 'm', 120000, {2, 11 , 1998}, 1, 0},
+        {1002, "juan", "perez", 'm', 1300000, {1, 4, 1990}, 3, 0},
+        {1003, "pedro", "sanchez", 'm', 90000, {29, 12, 2011}, 2, 0}
     };
-    eSector sectores[TAM_SEC] =  {
-                    {1,"R.R.H.H"},
-                    {2, "COMPRAS"},
-                    {3, "VENTAS"},
-                    {4,"SISTEMAS"},
-
-                    {5,"LEGALES"}
-    };
-    eMenu menues[TAM_MENUES] =  {
-
-        {1, "Sopa",100},
-        {2, "Ensalada" ,150},
-        {3, "Milaneasa" ,95},
-
-    };
+    eSector sectores[TAM_SEC];
+    eMenu menues[TAM_MENUES];
 
     eAlmuerzo almuerzos[] = {
         {0001, 1, 1001, {02, 11 , 2012}},
@@ -118,9 +102,9 @@ int main()
 
     char salir = 'n';
 
-   // inicializarSector(sectores, TAM_SEC);
-   // inicializarMenues(menues, TAM_MENUES);
-    //inicializarEmpleados(empleado , TAM_EMP);
+    inicializarSector(sectores, TAM_SEC);
+    inicializarMenues(menues, TAM_MENUES);
+   // inicializarEmpleados(empleado , TAM_EMP);
 
     do{
         switch(menuEmpleado()){
@@ -255,7 +239,7 @@ void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int t
 
        // int input;
 
-        indice = buscarEspacioEnElSistema(empleado , tamSector);
+        indice = buscarEspacioEnElSistema(empleado , tamEmpleado);
 
         if(indice == -1){
 
@@ -881,7 +865,7 @@ void modificarSector(eEmpleado empleado[], int tam ){
             printf("Se ha hecho la modificacion exitosamente \n\n");
         }else{
 
-            printf("No se ha hecho ninguna modificacio\n");
+            printf("No se ha hecho ninguna modificacion\n");
         }
 
 
@@ -1005,15 +989,15 @@ void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo a
   {
         for( j = 0; j < (tamEmpleados * tamMenues); j++ ) // recorro los almuerzos
         {
-         if( menues[i].codigoMenu == almuerzos[j].codigoMenu )  // busco la interseccion
-         {
-			for( k = 0; k < tamEmpleados; k++ ){ // recorro los empleados
-				if( empleados[k].isEmpty == 0 && almuerzos[j].legajoEmpleado == empleados[k].legajo ){
-					printf("%d %s %s\n", empleados[k].legajo, empleados[k].nombre, menues[i].descripcion );
-				}
+             if( menues[i].codigoMenu == almuerzos[j].codigoMenu )  // busco la interseccion
+             {
+                for( k = 0; k < tamEmpleados; k++ ){ // recorro los empleados
+                    if( empleados[k].isEmpty == 0 && almuerzos[j].legajoEmpleado == empleados[k].legajo ){
+                        printf("%d %s %s\n", empleados[k].legajo, empleados[k].nombre, menues[i].descripcion );
+                    }
 
-			}
-         }
+                }
+             }
         } //Cierre 2do for
   } // cierre 1er for
 
