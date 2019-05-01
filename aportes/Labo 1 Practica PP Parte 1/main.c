@@ -63,11 +63,16 @@ int menuComedor();
 void inicializarSector(eSector sectores[], int tam);
 void inicializarMenues(eMenu  menu[], int tam);
 void inicializarEmpleados(eEmpleado empleado[] , int tam);
+void inicializarAlmuerzos(eAlmuerzo almuerzo [], int tam);
 int buscarEspacioEnElSistema(eEmpleado empleado[], int tam);
+int buscarEspacionEnElRegistro(eAlmuerzo almuerzo[], int tam);
+int buscarMenu(eMenu menu[], int tamMenu, int codigoMenu);
 char opcionSalir();
 void altaEmpleado(eEmpleado empleado[] , int tamEmpleado, eSector sector[],int tamSector);
+void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado, eMenu menu[], int tamMenu, eAlmuerzo almuerzo[], int tamAlmuerzo, eSector sector[], int tamSector);
 int asignarSector(eSector sector[], int tamSector, char descripcion[], int idSector);
 void asignarLegajo(eEmpleado empleado[] , int tam, int indice);
+void asignarCodigoAlmuerzo(eAlmuerzo almuerzo[], int tamAlmuerzo, int indice);
 int menuModificar();
 void modificarEmpleado(eEmpleado empleado[] , int tamEmpleado);
 void modificarNombre(eEmpleado empleado[], int tam );
@@ -80,6 +85,7 @@ void bajaEmpleado(eEmpleado empleado[] , int tam);
 void mostrarEmpleado(eEmpleado empleado, eSector sector[], int tamSector);
 void listarEmpleados(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
 void listarEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSector sector[], int tamSector);
+void listarMenues(eMenu menu[], int tamMenu);
 void listadoMenuPorEmpleado ( eEmpleado empleados[], eMenu menues[], eAlmuerzo almuerzos[], int cantEmp, int cantMenu );
 
 int main()
@@ -93,13 +99,7 @@ int main()
     eSector sectores[TAM_SEC];
     eMenu menues[TAM_MENUES];
 
-    eAlmuerzo almuerzos[] = {
-        {0001, 1, 1001, {02, 11 , 2012}},
-        {0002, 2, 1002, {04, 12, 2014}},
-        {0003, 3, 1003, {30, 7, 2019}}
-
-
-    };
+    eAlmuerzo almuerzos[TAM_ALMUERZOS];
 
     char salir = 'n';
 
@@ -139,12 +139,22 @@ int main()
             break;
 
             case 6:
+                altaAlmuerzo(empleado, TAM_EMP, menues, TAM_MENUES, almuerzos, TAM_ALMUERZOS,sectores, TAM_SEC);
+                system("pause");
+            break;
+
+
+            case 7:
+                listarMenues(menues, TAM_MENUES);
+                system("pause");
+            break;
+
+            case 8:
                 listadoMenuPorEmpleado(empleado , menues, almuerzos, TAM_EMP, TAM_MENUES );
                 system("pause");
 
             break;
-
-            case 8:
+            case 9:
                 salir = opcionSalir();
             break;
 
@@ -175,13 +185,14 @@ int menuComedor(){
         puts("3- Modificar Empleado");
         puts("4- Listar Empleados");
         puts("5- Listar Empleado Por Sector");
-        puts("6- Listar Menu Por Empleados\n");
         puts("\t\t****Almuerzos****\n");
-        puts("7- Alta Almuerzo\n");
+        puts("6- Alta Almuerzo");
+        puts("7- Listar Menu\n");
+        puts("8- Listar Menu Por Empleados\n");
 
 
 
-        printf("Ingrese Una Opcion O Pulse 8 Para Salir ");
+        printf("Ingrese Una Opcion O Pulse 9 Para Salir ");
         scanf("%d", &opcion);
 
         return opcion;
@@ -212,7 +223,7 @@ void inicializarMenues(eMenu  menu[], int tam){
 
     eMenu vec[] = {
 
-        {1, "Sopa",100},
+        {1, "Sopa", 120},
         {2, "Ensalada" ,150},
         {3, "Milaneasa" ,95},
 
@@ -235,7 +246,7 @@ void inicializarEmpleados(eEmpleado empleado[] , int tam){
     }
 }
 
-void inicializarAlmuerzos(eAlmuerzo almuerzo , int tam){
+void inicializarAlmuerzos(eAlmuerzo almuerzo [], int tam){
 
     for(int i = 0; i < tam ; i++){
         almuerzo[i].isEmpty = 1;
@@ -1036,14 +1047,14 @@ void listarCantidadEmpleadosPorSector(eEmpleado empleado[], int tamEmpleado, eSe
 
 }
 
-void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado ,eSector sector[] ,int tamSector, eMenu menu[], int tamMenu, eAlmuerzo almuerzo[], int tamAlmuerzo){
+void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado, eMenu menu[], int tamMenu, eAlmuerzo almuerzo[], int tamAlmuerzo, eSector sector[], int tamSector){
 
     int legajo;
     int ok;
     int indice;
     int codigoMenu;
 
-        indice = buscarEspacioEnElSistema(almuerzo, tamAlmuerzo);
+        indice = buscarEspacionEnElRegistro(almuerzo, tamAlmuerzo);
 
         if(indice == -1){
             printf("No hay espacio en el sistema\n\n");
@@ -1061,8 +1072,9 @@ void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado ,eSector sector[] ,int t
                 printf("No existe el empleado de legajo %d\n\n", legajo);
                 printf("Ingrese legajo: ");
                 scanf("%d", &legajo);
-                oK = buscarEmpleado(empleado, tamEmpleado , legajo);
+                ok = buscarEmpleado(empleado, tamEmpleado , legajo);
             }
+            almuerzo[indice].legajoEmpleado = legajo;
 
             system("cls");
             printf("\n");
@@ -1079,13 +1091,41 @@ void altaAlmuerzo(eEmpleado empleado[], int tamEmpleado ,eSector sector[] ,int t
                 scanf("%d", &codigoMenu);
                 ok = buscarMenu(menu, tamMenu, codigoMenu);
             }
+            almuerzo[indice].codigoMenu = codigoMenu;
 
 
             printf("Ingrese Fecha: \n\n");
             printf("Ingrese Dia: ");
-            scanf("%d", &almuerzo.fecha.dia);
+            scanf("%d", &almuerzo[indice].fecha.dia);
+
+            while(empleado[indice].fechaIngreso.dia < 1 || empleado[indice].fechaIngreso.dia > 31){
+
+                    printf("Error Dia no valido ");
+                    scanf("%d", &almuerzo[indice].fecha.dia);
+
+            }
+
             printf("Ingrese Mes: ");
-            scanf("");
+            scanf("%d", &almuerzo[indice].fecha.mes);
+
+            while(empleado[indice].fechaIngreso.mes < 1 || empleado[indice].fechaIngreso.mes > 12){
+
+                    printf("Error mes no valido ");
+                    scanf("%d", &almuerzo[indice].fecha.mes);
+
+            }
+
+            printf("Ingrese Anio ");
+            scanf("%d", &almuerzo[indice].fecha.anio);
+            while(almuerzo[indice].fecha.anio < 2012 ){
+
+            printf("Anio no valido ");
+            scanf("%d", &almuerzo[indice].fecha.anio);
+
+           }
+           asignarCodigoAlmuerzo(almuerzo, tamAlmuerzo, indice);
+           almuerzo[indice].isEmpty = 0;
+
         }
 
 
@@ -1100,12 +1140,12 @@ void listarMenues(eMenu menu[], int tamMenu){
         printf("CODIGO\tDESCRIPCION\tIMPORTE\n\n");
     for(int i = 0 ; i < tamMenu; i++){
 
-        printf("%d\t%s\t%d\n\n",menu[i].codigoMenu, menu[i].descripcion, menu[i].importe);
+        printf("%d\t%10s\t%4d\n\n",menu[i].codigoMenu, menu[i].descripcion, menu[i].importe);
     }
 
 }
 
-int buscarMenu(eMenu menu, int tamMenu, int codigoMenu){
+int buscarMenu(eMenu menu[], int tamMenu, int codigoMenu){
 
     int ok = -1;
     for(int i = 0 ; i < tamMenu ; i++){
@@ -1121,4 +1161,33 @@ int buscarMenu(eMenu menu, int tamMenu, int codigoMenu){
     return ok;
 }
 
+void asignarCodigoAlmuerzo(eAlmuerzo almuerzo[], int tamAlmuerzo, int indice){
 
+    int codigo = 0;
+
+    for(int i = 0 ; i < tamAlmuerzo; i++){
+        codigo++;
+        if(indice == i){
+                almuerzo[indice].codigoAlmuerzo = i;
+                break;
+
+        }
+
+    }
+
+}
+
+int buscarEspacionEnElRegistro(eAlmuerzo almuerzo[], int tam){
+
+    int indice = -1;
+
+    for(int i = 0 ; i < tam ; i++){
+        if(almuerzo[i].isEmpty == 1){
+
+            indice = i;
+            break;
+        }
+    }
+
+    return indice;
+}
