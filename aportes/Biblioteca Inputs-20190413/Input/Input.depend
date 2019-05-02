@@ -11,3 +11,15 @@
 
 1460746095 /home/mauro/Documentos/workspace_c/utest/Input/inc/input.h
 
+1556561421 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\biblioteca inputs-20190413\input\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556561421 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\biblioteca inputs-20190413\input\main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1556561421 c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\biblioteca inputs-20190413\input\inc\input.h
+
