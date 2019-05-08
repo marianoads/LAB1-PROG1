@@ -1,0 +1,622 @@
+LENGUAJES:
+En C: lenguaje principal.
+C++: está orientado a objetos.
+
+
+LENGUAJE DE BAJO NIVEL: mas cerca del harware (lenguaje máquina). (C, C++).
+LENGUAJE DE ALTO NIVEL: mas cerca del humano para entenderlo. (JavaScript).
+
+RAMAS DE PROGRAMACION:
+INTERPRETADAS: JavaScript.
+COMPILADAS: C# (traduce el programa de código fuente a código máquina (0010110).
+
+.exe: el programa compilado y listo para ejecutar.
+
+IDE: entorno de desarrollo integrado (conjunto de programas).
+
+En CODEBLOCKS:
+Build: compila.
+Run: ejecuta.
+Build and run: compila y ejecuta.
+
+
+CREAR PROYECTO EN CODEBLOCKS: new, projects, console application, C, next.
+
+
+TIPOS DE VARIABLES:
+ENTEROS: int numero;
+FLOTANTE: float numero;
+CARACTER: char;
+
+
+
+BAJAR LA LINEA / ENTER:
+\n: baja la línea. Ejemplo: "Hola mundo\n";
+
+
+PRINTF:
+printf("Hola mundo\n"); --> imprime por consola.
+
+
+SYSTEM:
+system("pause"; --> pausa la ejecución del programa.
+
+
+PASAR POR VALOR:
+Para el valor (la funcion solo la ve).
+
+
+PASAR POR PARAMETRO O REFERENCIA: 
+Direccion de memoria (le das capacidad a una funcion para cambiar el valor de la variable).
+
+
+LIBRERÍAS O BIBLIOTECAS:
+Las librerías son repositorios de funciones.
+#include <stdio.h> --> stdio: standard input output (libreria estandard de entradas y salidas - h: hear (cabecera).
+#include <string.h> --> strcat, strcpy, strlen, etc.
+#include <type.h> --> toupper, tolower.
+
+
+LIMPIAR CONSOLA:
+system("cls");
+
+
+STDIN:
+Standar Input. Entradas estandar.
+
+
+STRLWR:
+Pasa todo a minuscula la cadena.
+strlwr(cad);
+
+
+STRUPR:
+Pasa todo a mayuscula la cadena.
+strupr(cad);
+
+
+STRCAT:
+strcat(cad1, cad2); --> concatena cad1 con cad2.
+
+
+STRLEN:
+Me devuelve la cantidad de caracteres que tiene una cadena.
+Ejemplo:
+
+int cantidad;
+cantidad = strlen(cadena); --> cantidad de letras que tiene la cadena
+
+Otro ejemplo:
+
+int cont=0;
+while(x[CANT] != '\0')
+{
+	(código)
+	cont++;
+}
+
+
+STRCMP:
+Compara elementos a elemento.
+Discrimina mayusculas y minusculas.
+strcmp(cad1, cad2) --> Si (cad1 ==cad2) devuelve 0 / Si (cad1>cad2) devuelve un numero mayor a 0 / Si (cad1<cad2) devuelve un numero menor a -1.
+
+
+STRICMP:
+No discrimina mayusculas y minusculas.
+
+
+STRCPY:
+String Copy.
+Copia el string.
+cad1 = cad2 --> no se puede hacer
+Ejemplo:
+strcpy(cad1, cad2); --> la cadena 2 se copia a la cadena 1
+
+
+STRNCPY:
+Ejemplo:
+strncpy(cadDestino, cadOrigen, (entero);
+
+
+TOLOWER:
+Pasa un caracter a minuscula.
+
+
+TOUPPER:
+Pasa un caracter a mayuscula. 
+Ejemplo:
+nombreCompleto[0] = toupper(nombreCompleto[0]); --> pone mayuscula el primer indice de la cadena nombreCompleto.
+
+
+FUNCIONES: 
+Una función es un microprograma.
+void nombreFuncion(void) --> llamo la función pero no doy ningún dato.
+int nombreFuncion( [datos] ) 
+
+ESTRUCTURA DE UNA FUNCIÓN:
+-Prototipo.
+-Desarrollo.
+-Llamada.
+
+DOCUMENTAR FUNCIONES / PONERLE COMENTARIO:
+Siempre se debe poner un comentario (en el prototipo (nombre.h) [dentro de la biblioteca] de cómo funciona la función, que funcion cumple.
+
+TIPOS DE FUNCIONES (4):
+retorna f1 (recibe)
+no retorna f2 (recibe)
+retorna f3 (no recibe)
+no retorna f4 (no recibe)
+(recibe datos / retorna resultado --- no recibe datos / no retorna resultado)
+
+
+CREAR UNA FUNCIÓN:
+Funcion para sumar 2 enteros:
+
+#include
+#define
+
+int sumar(int x, int y); ---> PROTOTIPO
+
+int main()
+{
+	sumar(3, 7); ---> LLAMADA
+}
+
+int sumar(int x, int y) ---> DESARROLLO
+{
+	int suma
+	suma = x+y
+	return = suma
+}
+
+
+CREAR OTRA FUNCIÓN:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int obtenerMayor(int x, int y, int z);
+
+int main()
+{
+	printf("%d\n", obtenerMayor(10, 12, 2);
+	return 0;
+}
+
+int obtenerMayor(int x, int y, int z)
+{
+	int mayor;
+	
+	if(x > y && x > z)
+	{
+		mayor=x;
+	}
+	else if(y >= x && y > z)
+	{
+		mayor=y;
+	}
+	else
+	{
+		mayor=z;
+	}
+	
+return mayor;
+}
+
+
+
+
+
+
+GUARDAR MI FUNCIÓN EN UN INCLUDE:
+include:
+nombre.c --> va el desarrollo.
+nombre.h --> va el prototipo.
+
+file-->new-->empty file: para nombre.c y para nombre.h
+Click derecho en el proyecto-->add files: nombre.c y nombre.h
+
+Y luego en main.c:
+Poner:
+#include "funciones.h"
+
+
+
+
+FRAMEWORK:
+Es un conjunto de librerías.
+
+INCLUDES:
+Es una librería que contiene el código de cada función para el preprocesador.
+#include <stdio.h> ---> <>: el compilador busca la biblioteca del compilador.
+#include "miinclude" ---> "": el compilador busca mi propia biblioteca.
+
+DEFINE:
+Busca y reemplaza. 
+Ejemplo:
+#define PI 3.14 / #define VALOR_MAXIMO 80
+PI / VALOR_MAXIMO --> siempre en mayúscula.
+Significa: cada vez que haya PI en el código, cambiarlo por 3.14
+
+ENTRADAS STANDARD: teclado, mouse, etc.
+SALIDAS STANDARD: monitor, impresora, etc.
+
+SIZEOF:
+Es un operador.
+sizeof(int / nombreDeVariable) --> tamaño en bytes que ocupa en memoria de tipo INT o de una variable.
+
+PUTS:
+Muestra un string, muestra una cadena. Termina automaticamente. Es parecido a printf.
+Ejemplo:
+puts(nombreCompleto); --> nombreCompleto es una cadena.
+
+MASCARAS:
+%d --> para entero. / %6d --> en printf muestra 6 enteros (completa con ceros).
+%f --> para decimal. / %6.2f --> en printf muestra 6 enteros (completa con ceros), y muestra con 2 decimales.
+%c --> para caracteres.
+%s --> para cadena de caracteres.
+
+Ejemplo: 
+printf("La suma x vale %d chau", x); --> en C.
+console.log("La suma x vale" + x + "chau"); --Z en JavaScript.
+
+BITS:
+1 bit = 1 cifra (puede ser 0 o 1).
+1 bit = menor cantidad de peso posible.
+1 byte = 8 bits.
+
+CARACTER:
+"a" --> cadena de caracteres.
+'a' --> char (un caracter).
+a --> variable.
+
+EN %F:
+Si pongo %.2f --> me va a mostrar el numero con 2 decimales.
+
+PEDIR DATOS:
+printf("Ingrese un numero: ");
+scanf("%d", &numero);
+
+STRING:
+Es una cadena de caracteres.
+
+DIFERENCIA ENTRE SCANF Y GETS:
+scanf --> corta con un espacio.
+gets --> no corta con un espacio.
+fgets --> limita la cantidad de caracteres que eran leidos (fgets: f=file, manejo de arhivos).
+
+
+GETS:
+Funcion parecida a scanf.
+Ejemplo:
+
+char auxCad[100];
+char nombre[20];
+
+printf("Ingrese nombre:");
+gets(auxCad);
+
+while(strlen(auxCad) > 19)
+{
+	printf("Nombre demasiado largo");
+	gets(auxCad);
+	strcpy(nombre, auxCad);
+}
+
+
+FGETS:
+Voy a leer solo los 19 caraceres.
+
+MOSTRAR DATO:
+printf("Usted ingresó el numero: %d, numero);
+
+AMPERSANT:
+& --> ampersant.
+&numero --> dirección de memoria de la variable número (Ej: 0x14F256).
+int numero; --> la variable numero de tipo entero está conformado por: nombre (numero), valor (Ej: 2), dirección de memoria (Ej: 0x14F256).
+
+MAIN: 
+Función principal.
+int main()
+{
+}
+
+RETURN: 
+Significa que la función debe devolver una información luego de procesar el dato.
+Si la función no tiene RETURN, no devuelve nada, si tiene, devuelve un resultado.
+
+VARIABLE LOCAL Y GLOBAL:
+int x = 30;
+
+int main()
+{
+	printf("%d\n", x); --> muestra 30, el valor de la variable global (no se usa, es una mala práctica).
+	
+	int x = 20;
+	printf("%d\n", x); ---> muestra 20, el valor de la variable local de la función main.
+
+	return 0;
+}
+
+
+PUNTERO:
+Son variables que guardan una dirección de memoria.
+int nro;
+int #n; --> #: define la variable "n" como puntero (guarda una dirección de memoria, un dato entero).
+
+nro=3;
+n=&nro;
+
+printf("%d", nro); --> muestra 3
+printf("%p", n); --> muestra direccion de memoria (Ej: 0x100)
+printf("%d", #n); --> muestra 3
+
+
+PEDIR VARIABLE PUNTERO DE TIPO ENTERO / CHAR / DECIMAL:
+int pedirDato(int* valor);
+	      char*
+	      float*
+
+
+ESCRIBIR O LEER EN LA DIRECCION DE MEMORIA DE LA VARIABLE PUNTERO:
+*puntero = 23;
+
+
+RECURSIVIDAD:
+Funciones recursivas: funciones que se van a llamar a sí mismas.
+
+
+FACTORIAL:
+ABC --> cuantas veces puedo ordenar esas 3 letras (6 veces).
+
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
+3! = 3x2x1 = 6
+
+
+BREAK:
+break; --> corta la sentencia.
+Ejemplo:
+if(cont == 3)
+{
+	break;
+
+
+VARIABLES:
+-VARIABLES ESCALARES.
+
+-VARIABLES COMPUESTAS: 
+-Datos del mismo tipo (arrays):
+Una dimensión: vectores.
+Multidimensional: matrices.
+
+-Datos de distinto tipo:
+Estructuras.
+
+
+VECTORES:
+Variable que guarda la dirección de memoria del primero del array. Sirven para usar estructuras repetitivas y guardar todas las variables que quiera.
+-Un ejemplo:
+int x;
+int vec[5]; --> reserva 5 lugares en la memoria (el numero es el indice de cada uno);
+
+-Otro ejemplo:
+int vec[5];
+vec[3] = 20; --> al vector n°3 de 5, le doy el valor 20.
+
+-Otro ejemplo:
+int vec[5];
+
+for(int i=0; i < 5; i++)
+{
+	printf("Ingrese un numero: ");
+	scanf("%d", &vec[i]);
+}
+
+printf("El vector cargado con los numeros es: \n\n");
+
+for(int i=0; i < 5; i++)
+{
+	printf("%d", vec[i];
+}
+
+printf(\n\n);
+
+
+-Otro ejemplo (suma y promedio de dos numeros):
+int main()
+{
+	int vec[5];
+	int acumulador = 0;
+	float promedio;
+
+	for(int i=0; i < 5; i++)
+	{
+		printf("Ingrese un numero: ");
+		scanf("%d", &vec[i];
+	}
+	
+	for(int i=0; i < 5; i++)
+	{
+		acumulador += vec[i];
+	}
+
+	promedio = (float) acumulador / 5;
+
+	printf("La suma de los numeros ingresads es %d\n", acumulador);
+
+	printf("El promedio es %.2f\n\n", promedio);
+
+
+SE PUEDE DEFINIR EL VECTOR Y DARLE LOS VALORES AL MISMO TIEMPO:
+int vec[] = (23, 56, 43, 21, 6, 7);
+
+
+VECTOR DE CARACTERES:
+-Guardar cadenas de caracteres.
+-Guardar caracteres individuales.
+-Ejemplo:
+int main()
+{
+	char x[5]= {'a', 'e', 'i', 'o', 'u'};
+
+	for(int i=0; i < 5; i++)
+	{
+		printf("%c", x[i]);
+	}
+}
+
+
+PASAR VECTOR POR PARÁMETRO:
+-Ejemplo:
+int buscarChar(char caracter, char vec[], int tam);
+
+int main()
+{
+	char x[5]= {'a', 'e', 'i', 'o', 'u'};
+
+	int esta;
+	esta = buscarChar('a', x, 5);
+
+	if(esta)
+	{
+		printf("Esta\n");
+	}
+	else
+	{
+		printf("No esta\n");
+
+	}
+
+    return 0;
+}
+
+int buscarChar(char caracter, char vec[], int tam)
+{
+    int esta = 0;
+
+    for(int i=0; i < tam; i++)
+    {
+        if(caracter == vec[i])
+        {
+            esta = 1;
+            break;
+        }
+
+    }
+
+    return esta;
+}
+
+
+ORDENAR VECTOR DE MANERA ASCENDENTE (METODO BURBUJEO):
+#include <stdio.h>
+#include <stdlib.h>
+#define CANT 5
+
+int main()
+{
+    int vec[5] = {7, 5, 6, 2, 8};
+    int aux;
+    int i;
+    int j;
+
+    for(i = 0; i < CANT-1; i++) //CANT = cantidad de componentes del vec[i]
+    {
+
+        for(j = i+1; j < CANT; j++)
+        {
+            if(vec[i] > vec[j])  //el > lo ordeno de manera ascendente, si es < lo ordeno de manera descendente
+            {
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+
+
+        }
+    }
+
+    for(i = 0; i < CANT; i++)
+    {
+        printf("%d", vec[i]);
+    }
+
+
+
+    return 0;
+}
+
+
+PRIMER ORDENAMIENTO:
+
+
+
+DOBLE CRITERIO DE ORDENAMIENTO:
+
+
+
+MATRICES:
+Es un vector de vectores. Tiene filas y columnas.
+Ejemplo:
+char mat[5][20]; --> 5=filas, 20=columnas.
+
+Otro ejemplo (para guardar caracteres):
+mat[5][4] = 'm'; --> en matriz
+cad[4] = 'm'; --> en una cadena (vector).
+
+
+
+
+FOR:
+Se usa cuando sé la cantidad de iteraciones (se usa para vectores). Se puede definir una variable que solo la va a usar la función for (en este caso el int i = 0).
+int vec[5];
+for(int i=0; i < 5; i++)
+{
+
+}
+
+
+WHILE:
+Cuando no sé la cantidad de iteraciones.
+
+
+DEJARME QUE EL COMPILADOR ACEPTE DEFINIR VARIABLES DENTRO DEL FOR:
+En el codeblocks --> compilador --> tildar STD99
+
+
+LIMPIAR EL BUFFER:
+fflush(stdin);  --> para caracteres (debajo de scanf, no se necesita para gets)
+Ejemplo:
+    printf("Ingrese el nombre: \n");
+    scanf(agenda.nombre);
+    fflush(agenda.nombre);
+
+
+SISTEMAS DE BASE DE DATOS:
+Conjuntos de tablas para guardar informacion
+
+
+
+ESTRUCTURA:
+Es un tipo de dato definido por el usuario.
+Conjunto de datos (como una matriz) pero va a tener diferentes tipos incluidos: int, char, float, etc.
+
+-Desarrollo una estructura siempre va antes del main.
+
+-La defino dentro de main. (Ejemplo: struct datosPersonales agenda;)
+Defino a agenda como un tipo de variable estructura de datosPersonales.
+Osea:
+int: de tipo entero.
+float: de tipo decimal.
+char: de tipo caracter.
+struct: de tipo datosPersonales.
+
+Tienen 2 propiedades:
+Asignacion: puedo igualar estructuras. Ej: contactos = agenda; / Si quiero copiar un solo campo: contactos.nombre = agenda.nombre;

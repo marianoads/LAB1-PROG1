@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1556840198 source:d:\parcial_1_lab_1\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1557155436 source:d:\parcial_1_lab_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"input.h"
+
+1556829298 d:\parcial_1_lab_1\input.h
+
+1557186916 source:c:\users\home\desktop\parcial_1_lab_100\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1557281972 source:c:\users\home\desktop\parcial_1_lab_100\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"socios.h"
+
+1556829298 c:\users\home\desktop\parcial_1_lab_100\input.h
+
+1557277564 c:\users\home\desktop\parcial_1_lab_100\socios.h
+
+1557281782 source:c:\users\home\desktop\parcial_1_lab_100\socios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"input.h"
+	"socios.h"
+

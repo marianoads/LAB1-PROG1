@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1460746297 source:/home/mauro/Documentos/workspace_c/utest/Input/input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1460745793 source:/home/mauro/Documentos/workspace_c/utest/Input/main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1460746095 /home/mauro/Documentos/workspace_c/utest/Input/inc/input.h
+
+1460746296 source:c:\users\home\desktop\programacion i\input\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1460746344 source:c:\users\home\desktop\programacion i\input\main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1460746094 c:\users\home\desktop\programacion i\input\inc\input.h
+
+1555501685 source:/home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/Input/input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1555501685 source:/home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/Input/main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1555501685 /home/alumno/Escritorio/Clases-Ejercicios-lab-prog_1/Clases,Apuntes_Prog1_Lab1/aportes/Input/inc/input.h
+

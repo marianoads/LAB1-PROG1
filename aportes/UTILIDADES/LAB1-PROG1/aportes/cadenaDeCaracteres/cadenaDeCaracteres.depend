@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1554301389 source:c:\users\alumno\desktop\cadenadecaracteres\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1554869356 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\clases lab_1\cadenadecaracteres\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

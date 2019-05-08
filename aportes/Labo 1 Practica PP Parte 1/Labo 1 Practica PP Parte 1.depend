@@ -36,10 +36,65 @@
 
 1556829081 c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\labo 1 practica pp parte 1\empleados.h
 
-1556837686 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\labo 1 practica pp parte 1\input.c
+1556840197 source:c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\labo 1 practica pp parte 1\input.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 
 1556829297 c:\users\home\desktop\clases-ejercicios-lab-prog_1\aportes\labo 1 practica pp parte 1\input.h
+
+1556844903 source:c:\users\home\desktop\labo 1 practica pp parte 1\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+	"input.h"
+
+1556829081 c:\users\home\desktop\labo 1 practica pp parte 1\empleados.h
+
+1556829297 c:\users\home\desktop\labo 1 practica pp parte 1\input.h
+
+1556840197 source:c:\users\home\desktop\labo 1 practica pp parte 1\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1556831640 source:c:\users\home\desktop\labo 1 practica pp parte 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
+1556844903 source:c:\users\home\desktop\lab1-prog1\aportes\labo 1 practica pp parte 1\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+	"input.h"
+
+1557004263 c:\users\home\desktop\lab1-prog1\aportes\labo 1 practica pp parte 1\empleados.h
+
+1556829297 c:\users\home\desktop\lab1-prog1\aportes\labo 1 practica pp parte 1\input.h
+
+1556840197 source:c:\users\home\desktop\lab1-prog1\aportes\labo 1 practica pp parte 1\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1556831640 source:c:\users\home\desktop\lab1-prog1\aportes\labo 1 practica pp parte 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
 

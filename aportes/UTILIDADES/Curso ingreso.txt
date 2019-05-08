@@ -1,0 +1,236 @@
+BAJAR REPOSITORIO DE GITHUB A PC:
+En el GITBASH:
+1- git clone https://github.com/robercolombo18/CursoIngresoJS
+
+SUBIR REPOSITORIO DE PC A GITHUB:
+En el GITBASH:
+1- cd nombredelacarpeta
+2- git status --> los archivos modificados deben aparecer en rojo.
+3- git add . --> añade todos los archivos modificados.
+4- git status --> los archivos modificados deben aparecer en verde.
+5- git commit -m "comentario" --> agrega una descripción al archivo subido.
+6- git push origin master --> sube todos los archivos a GITHUB.
+
+
+-----------//LENGUAJE JAVASCRIPT//-----------
+
+CLIENTE:
+-JavaScript (lenguaje de programación)
+-HTML
+-CSS
+
+SERVIDOR:
+-PHP
+-C#
+-JAVA
+-JavaScript
+-Nodeus
+
+
+
+DATOS DE ENTRADA:
+-Prompt: var=prompt("Mensaje"); --> Pide por mensaje.
+-GetElementById: var=document.getElementById("ID").value; --> Pide por ID.
+
+DATOS DE SALIDA:
+-Alert: alert("Mensaje"); --> Muestra un mensaje.
+-GetElementById: document.getElementById("ID").value=var --> Muestra mensaje con lo que vale la variable.
+
+
+
+AGREGAR COMENTARIO:
+Es un texto para que el programador lo lea: 
+COMENTARIO DE UNA LINEA: //comentario
+COMENTARIO DE VARIAS LINEAS: 
+/*
+Comentarios de varias lineas
+*/
+
+
+
+VARIABLES:
+var nombre --> Defino la variable.
+nombre="Mario" --> Valor de la variable.
+
+
+
+VALORES:
+NUMBER: nombre=12
+STRING: nombre="12
+BOOLEAN: true / false
+OBJETC:
+UNDEFINED: esta variable nunca tuvo valor
+NULL: valor negativo
+
+
+
+CONCATENAR:
+"2"+"2" = "22"
+2+2 = 4
+
+
+
+PARSEINT:
+Se hace parseInt una variable para transformarlo a entero: var=parseInt(var);
+PARSEFLOAT:
+Se hace parseFloat una variable para transformarlo a entero o decimal: var=parseFloat(var);
+
+
+
+NUMERO DECIMAL:
+Cuando pongo un numero con coma, va con punto y no con coma (Ejemplo: 1,12: lo pongo como 1.12).
+
+
+
+IF:
+Si hay una condicion para algo, hacer esto otro.
+if(condicion){
+alert("Hola");
+}
+else
+{
+alert("Chau");
+}
+
+
+
+OPERADORES:
+> mayor
+>= mayor o igual
+< menor
+<= menor o igual
+OPERADORES LÓGICOS:
+&& --> y
+!! --> o
+! --> negación
+
+
+
+NUMERO RANDOM:
+var=match.floor(match.random()*10)+1 --> numero random del 1 al 10, el match.floor redondea y saca los decimales.
+
+
+
+SWITCH:
+Compara diferentes valores que puede tener una variable.
+switch(cantidadLamparas)
+{
+    case 5:
+    descuento=0;
+
+break;
+default:
+   descuento=50
+break;
+}
+El default es todo lo que no defino en los cases, siempre se pone.
+
+case 1:
+case 2:
+   descuento=0  --> tanto para los dos cases valen lo mismo
+break;
+
+
+NOTA: 
+Puede haber un SWITCH dentro de un IF o viceversa.
+
+
+
+WHILE:
+Mientras se cumpla esta condicion, se va a seguir ejecutando el while hasta que no se cumpla. En algúm momento tiene que cambiar el valor para que no sea un bucle infinito.
+Se usa por ejemplo si ingresas una palabra y es incorrecta, while te pregunta de nuevo. O se usa hasta que no ingrese bien la clave, me lo vuelve a mostrar.
+while(monto>100){
+    monto(prompt)
+    alert(monto);
+
+BREAK:
+Corta la sentencia.
+CONTINUE:
+Vuelve a la condición para evaluarla de nuevo.
+
+
+
+CONSOLE LOG:
+Imprime por consola lo que se ejecuta: console.log();
+
+
+
+EQUIVALENTES DE AGREGARLE 1 AL CONTADOR:
+var=cont
+
+cont=cont+1;
+cont+=1;
+cont++;
+++cont;
+
+
+
+SACAR NUMEROS PARES:
+if(var%2==0)
+{
+
+}
+SACAR NUMEROS IMPARES:
+if(var%2!=0)
+{
+
+}
+
+
+
+-PEDIR ENTRE UN NUMERO Y OTRO:
+
+while(!(numero>10 && numero<20))
+{
+	numero=prompt("Numero invalido, vuelva a ingresar un numero.");
+}
+
+
+
+-INGRESAR DATOS HASTA QUE EL USUARIO QUIERA:
+
+respuesta=true;
+while(respuesta==true)
+{
+
+	respuesta=confirm("Deseas continuar");
+}
+
+
+
+-PEDIR HASTA UN NUMERO DETERMINADO DE VECES:
+
+var cont;
+cont=0;
+while(cont<5)
+{
+
+}
+
+
+
+-DETECTAR POSITIVOS Y NEGATIVOS:
+
+bandera=0;
+
+while()
+{
+	
+
+if(bandera==0)
+{
+	numeroMaximo=numero;
+	numeroMinimo=numero;
+	bandera=1;
+}
+else
+{
+	if(numero>numeroMaximo)
+	{
+		numeroMaximo=numero;
+	}
+
+	if(numero<numeroMinimo)
+	{
+		numeroMinimo=numero;
+	}
