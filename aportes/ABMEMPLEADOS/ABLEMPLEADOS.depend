@@ -56,3 +56,21 @@
 	<conio.h>
 	"empleados.h"
 
+1557750505 source:c:\users\alumno\desktop\lab1-prog1\aportes\abmempleados\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"empleados.h"
+
+1557750505 c:\users\alumno\desktop\lab1-prog1\aportes\abmempleados\empleados.h
+
+1557750505 source:c:\users\alumno\desktop\lab1-prog1\aportes\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"empleados.h"
+

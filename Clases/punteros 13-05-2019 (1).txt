@@ -1,0 +1,233 @@
+int x= 10;
+
+int *p; || int* p; // declarando un puntero , guarda la direccion de memoria "entera", apunta a un entero
+
+char* j; // guarda direccion de memoria "char", apunta a un char
+
+p = &x; // p obtiene la direccion de memoria de p
+
+ 
+printf("%d \n", x); // retorna 10
+printf("%d \n", *p); // retorna 10
+
+
+printf("%x \n", p); // retorna direccion de memoria x (porque p apunta a x)
+printf("%x \n", &x); // retorna direccion de memoria de x
+
+// %p o %x te muestra la dir de memoria
+
+
+/* EJEMPLO*//*
+int main (){
+	int x = 10;
+
+	printf("Antes de leer al puntero!);
+
+
+	leerPuntero(&x);
+	
+	printf("Despues de llamar a ller al puntero");
+
+
+
+
+}
+
+void leerPuntero(int *p) // se debe capturar en una variable puntero entero (porque x es entero)
+{
+
+	*p = 38;
+
+
+}
+
+
+*/
+
+
+int** r = &p; // doble puntero (lo recibe de un puntero)
+
+printf("%d\n", **r); // retorna el valor 
+
+
+ 
+int vec[] = {3 ,5 , 2 , 4 , 3};
+
+int *p;
+
+printf("%x", vec); // imprime 28ff0c
+
+printf("%x", vec[0]); // imprime 28ff0c
+
+
+printf("%x", *vec); // retorna 3
+
+*(vec + 1) // accedes al valor del segundo indice
+ 
+// el uno es un sizeof del tipo de dato en este caso 4 bytes
+
+
+
+// si quiero recorrer 
+
+for(int i =0; i < 5; i++){
+
+	printf("%d\n", *(vec + 1)); // imprime los valores dentro del array usando aritmetica de punteros
+
+}
+
+
+
+/* recorriendo un array con nomenclatura vectorial, y de punteros*/
+
+void mostrarVector1(int vec[], int tam){// vectores para mostrar
+
+	for(int i = 0; i < tam; i++){
+		printf("%d", vec[i]);
+	
+	}
+}
+
+void mostrarVector2(int vec[], int tam){// punteros para mostrar
+
+	for(int i = 0; i < tam; i++){
+		printf("%d", *(vec + i));
+	
+	}
+
+}
+
+void mostrarVector3(int *vec, int tam){// punteros para mostrar 
+
+	for(int i = 0; i < tam; i++){
+		printf("%d", *(vec + i));
+	
+	}
+
+
+}
+
+void mostrarVector4(int *vec, int tam){// vectores para mostrar
+
+
+	
+	for(int i = 0; i < tam; i++){
+		printf("%d", vec[i]);
+	
+	}
+
+}
+
+
+/********************************************************************/
+
+/* trabajar con coherencia si se debe usar una nomencletura */
+
+
+/* ejemplo de pasaje en la funcion*/
+
+
+int main()
+{
+    char nombre[20] = "Sebastian";
+
+    return 0;
+}
+ 
+void getChar(char* message, char* caracter){ // no se puede difereciar si es un solo caracter o un string OJO CON ESTO 
+
+    printf("%s", message);
+    scanf("%c", caracter);
+    
+}
+
+/***************************************************************/
+
+
+/* imprimir string cuando se pasa se trabaja con punteros*/
+
+//void mostrarCadena(char* cadena);
+
+int main()
+{
+   // char nombre[20] = "Sebastian";
+   /* char cadena[] = "Hola mundo";
+
+
+    mostrarCadena(cadena);*/
+
+    return 0;
+}
+
+/*void mostrarCadena(char* cadena){
+
+
+    while(*cadena  != '\0'){
+
+        printf("%c", *cadena);
+        cadena++;
+
+    }
+    
+   
+
+
+}*/
+
+
+/**************************************************************/
+
+
+/* ESTRUCTURAS POR REFENCIAS */
+
+typedef struct{
+    int dia;
+    int mes;
+    int anio;
+
+
+}eFecha;
+
+typedef struct{
+
+    int legajo;
+    char nombre[50];
+    char sexo;
+    float sueldo;
+    eFecha fechaIngreso;
+
+
+}eEmpleado;
+
+int main(){
+
+    eEmpleado unEmpleado = {1234, "Juan", 'm', 3000,{01, 02 , 2015}};
+    eEmpleado otroEmpleado = {2222, "Ana", 'f', 2000,{20, 02 , 2017}};
+
+
+    //eEmpleado *punteroEmpleado;
+
+    eEmpleado lista[] ={unEmpleado, otroEmpleado};
+
+   // punteroEmpleado = &unEmpleado;
+
+    /* cuando se tiene  el puntero de una estructura para acceder a los campos se usa la flecha ->*/
+
+   // printf("anio; %d", punteroEmpleado->fechaIngreso.anio); // fecha ingreso no es una direccion de memoria por lo tanto se accede a sus campos mediante punto
+
+  //  printf("\nnombre: %s\n", (*punteroEmpleado).nombre); // asi tambien se puede acceder a um campo de la estructura
+
+  for( int i = 0 ; i < 2; i++){
+
+
+    printf("%s\n", (lista + i)->nombre);
+  }
+
+    return 0;
+}
+
+
+
+
+
+
