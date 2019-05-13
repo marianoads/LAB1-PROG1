@@ -1,0 +1,117 @@
+/*  declaracion */
+    
+    /*int* a;
+    char* p;
+    float* f;*/
+    
+    /* operadore: existen dos*/
+    
+    //1- '&'  2- '*'
+
+    int* a;
+    int b;
+    
+    a = &b;
+
+/* ejemplo */
+
+int* a;
+int b,c;
+
+b = 15;
+
+a = &b // a obtinene la direccion de memoria de de b
+
+c = *a // copiamos en c el valor que retorna a
+
+/* asignacion */
+
+int* a;
+int* b;
+
+int c;
+
+a = &c;
+
+b = a; // asignamos el valor del puntero a al puntero b
+
+
+/* comparacion */
+
+int* punteroA;
+int* punteroB;
+
+int auxiliarC, auxiliarD;
+
+punteroA = &auxiliarC;
+
+punteroB = %auxiliarD;
+
+if(punteroA < punteroB)
+	printf("el puntero A aunta a una direccion mas baja que el punteroB");
+else if(punteroA > punteroB)
+	printf("el punteroB apunta a una direccion mas baja que el punteroA");
+
+/*aritmetica en punteros */
+
+tipo* a;
+
+a = a + num;
+
+la posicion a la que apunta se incrementa en:
+
+nueva direccion que contiene la variable "a" = direccion que contiene "a" + (num * sizeof(tipo));
+
+la a la que apunta se decrementa en:
+
+nueva direccion que contiene la variable "a" = direccion que contiene "a" + (num * sizeof(tipo));
+
+los operadores ++ y -- son equivalenta a num = 1
+
+/* vectores y punteros*/
+
+char cadena[80];
+char* p;
+
+p = &cadena[0] // equivalente a: p = cadena
+
+sabiendo esto entonces se puede acceder a la quinta posicion del elemento del array con:
+
+cadena[4] y *(p + 4)
+
+es posible obtener la direccion de un elemento de un array de la siguiente forma:
+
+int arrayInt[80];
+int* p1;
+int* p2;
+p1 = &arrayInt[4];
+p2 = &arrayInt;
+
+
+para definir un array de variable de punteros:
+
+ej: int* a[10];
+
+para asignar una direccion de una variable entera llamada 'var', al tercer elemento del array de punteros se escribe:
+
+x[2] = &var; // asignando la direccion de memoria de una variable 'var' al tercer elemento de un array de punteros
+
+si se quiere obtener el valor de var se escribe ---> *x[2];
+
+Dado que ademas que un puntero tambien es una variable es posible definir un puntero a un puntero
+supongamos que tenemos lo siguiente :
+
+int a;
+int* punteroInt;
+int** punteroPuntero;
+
+punteroInt = &a;
+punteroPuntero = &puntero;
+
+Entoncees el valor de 'a' se puede acceder de la siguiente forma:
+
+a (forma habitual)
+
+*punteroInt (a traves del puntero)
+
+**punteroPuntero (a traves del puntero puntero)
