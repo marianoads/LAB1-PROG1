@@ -168,3 +168,30 @@
 
 1556829298 c:\users\home\desktop\calderon_gilberto_1a\input.h
 
+1557790676 source:c:\users\home\desktop\lab1-prog1\aportes\calderon_gilberto_1a\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1557792120 source:c:\users\home\desktop\lab1-prog1\aportes\calderon_gilberto_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"socios.h"
+
+1557776076 c:\users\home\desktop\lab1-prog1\aportes\calderon_gilberto_1a\socios.h
+
+1557885762 source:c:\users\home\desktop\lab1-prog1\aportes\calderon_gilberto_1a\socios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"input.h"
+	"socios.h"
+
+1557776076 c:\users\home\desktop\lab1-prog1\aportes\calderon_gilberto_1a\input.h
+

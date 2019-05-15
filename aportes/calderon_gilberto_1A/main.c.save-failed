@@ -6,8 +6,8 @@
 
 #define TAM_AUTORES 10
 #define TAM_LIBROS 20
-#define TAM_SOCIOS 9
-#define TAM_PRESTAMOS 180
+#define TAM_SOCIOS 7
+#define TAM_PRESTAMOS (TAM_SOCIOS * TAM_LIBROS)
 
 int main()
 {
@@ -20,32 +20,22 @@ int main()
     {1234, "armani", "alberto", 'm', "11-32459993", "armAlb@gmail.com", 0 ,{5,12, 2018}},
     {1111, "santana", "carlos", 'm', "11-8493029485", "sant@gmail.com", 0, {31, 12, 2019}},
     {1212, "de sales", "antonio", 'm', "11-23450493", "antoniode@gmail.com", 0,{29, 11, 2014}},
-    {1012, "vegas", "astrid", 'f', "11-23440392", "va@gmail.com", 0 ,{11, 2, 2019}},
+    {1012, "vegas", "astrid", 'f', "11-23440392", "va@gmail.com", 0 {11, 2, 2019}},
     {3333, "abril", "sandra", 'f', "11-12310493", "abril@gmail.com", 0, {02, 2, 2019}},
-    {3434, "villegas", "octavio", 'm', "11-23440984", "octavil@gmail.com", 0 ,{3, 3, 2012}},
+    {3434, "villegas", "octavio", 'm', "11-23440984", "octavil@gmail.com", 0 {3, 3, 2012}},
     {4444, "villegas", "jose", 'm', "15-23450342", "joe@gmail.com", 0, {9, 9, 2019}}
 
     };
-    ePrestamos prestamos[TAM_PRESTAMOS] = {
-    {8000, 2009, 4444, {20, 4, 2019},0},
-    {8001, 2008, 1234, {20, 4, 2019}, 0},
-    {8002, 2019, 3434, {20, 6, 2019}, 0},
-    {8003, 2009, 1012, {9, 7, 2019}, 0},
-    {8004, 2014, 4444, {31, 9, 2019}, 0},
-    {8005, 2013, 1234, {22, 10, 2019},0},
-    {8006, 2012, 2222, {9, 11, 2019},0},
-    {8007, 2012, 1012, {9, 12,2019},0}
-
-    };
+    ePrestamos prestamos[TAM_PRESTAMOS];
 
     initAutores(autores, TAM_AUTORES);
     initLibros(libros, TAM_LIBROS);
-    //initSocios(socios, TAM_SOCIOS);
-    //initPrestamos(prestamos, TAM_PRESTAMOS);
+    initSocios(socios, TAM_SOCIOS);
+    initPrestamos(prestamos, TAM_PRESTAMOS);
 
 
     char salir = 'n';
-    int flag = 1;
+    int flag = 0;
 
     do{
             switch(menuBiblioteca()){

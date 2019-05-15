@@ -66,11 +66,11 @@ int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLi
 {
     fflush(stdin);
     printf("%s", message);
-    //scanf("%c", input);
-    *input = getche();
+    scanf("%c", input);
+
 
     fflush(stdin);
-   // scanf(" %c", input);
+   //scanf(" %c", input);
 
     while(!(*input == lowLimit || *input == hiLimit)){
         printf("%s", eMessage);

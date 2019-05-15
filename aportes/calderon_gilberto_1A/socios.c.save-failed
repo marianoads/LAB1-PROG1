@@ -821,22 +821,20 @@ void promedioDiarioPrestamos(ePrestamos prestamos[], int tamPrestamos){
 void diasNoSuperanPromedio(ePrestamos prestamos[], int tamPrestamos){
 
        int dias = 31;
-       int totalGeneral = 0;
+       int solicitudes = 0;
        float promedio;
-       float solicitudes = 0;
+       int totalGeneral = 0;
        int diasQueNoSuperanPromedio = 0;
 
 
-       for(int i = 0; i < 31; i++){
-        for(int j = 0; j < tamPrestamos; j++){
-            if(prestamos[j].isEmpty == 0 && prestamos[j].fechaPrestamo.dia == i+1){
-                totalGeneral++;
+       for(int i = 0; i < tamPrestamos; i++){
 
+            if(prestamos[i].isEmpty == 0 ){
+                totalGeneral++;
             }
         }
-     }
 
-       promedio = (float) totalGeneral / dias;
+       promedio = solicitudes / dias;
 
        for(int i = 0; i < 31; i++){
 
@@ -891,7 +889,7 @@ void listarLibrosConSocios(ePrestamos prestamos[], int tamPrestamos, eSocios soc
 
     int count = 0;
     for(int i = 0; i < tamSocios; i++){
-        printf("\n%s  %s:\n", socios[i].nombre, socios[i].apellido);
+        printf("\n\n%10s  %10s\n", socios[i].nombre, socios[i].apellido);
 
         for(int j = 0; j < tamPrestamos; j++){
 
@@ -900,14 +898,14 @@ void listarLibrosConSocios(ePrestamos prestamos[], int tamPrestamos, eSocios soc
                 for(int k = 0; k < tamLibros; k++){
 
                     if(socios[i].isEmpty == 0 && libros[k].codigoLibro == prestamos[j].codigoLibro){
-                        printf("\n*%10s   %10d\n\n", libros[k].titulo, libros[k].codigoLibro);
+                        printf("\n%10s   %10d\n\n", libros[k].titulo, libros[k].codigoLibro);
                         count++;
                     }
                 }
             }
         }
         if(count == 0){
-            printf("\n\tEl empleado no ha solicitado ningun libros\n\n");
+            printf("\nEl empleado no ha solicitado ningun libros\n\n");
         }
         count = 0;
     }
@@ -915,84 +913,78 @@ void listarLibrosConSocios(ePrestamos prestamos[], int tamPrestamos, eSocios soc
 
 void librosMenosSolicitados(eLibros libros[], int tamLibros, ePrestamos prestamos[], int tamPrestamos){
 
-    int minimo;
-    int solicitudes = 0;
+    int cont;
+    int minimoDeSolicitados;
     int flag = 0;
-    int counter = 0;
+    int cont2 = 0;
 
-    for(int i = 0 ; i < tamLibros ; i++){ // ---> buscar el minimo
 
+    for(int i = 0 ; i < tamLibros; i++){
+        cont = 0;
         for(int j = 0; j < tamPrestamos; j++){
+            if(libros[i].codigoLibro == prestamos[j].codigoLibro){
+                cont++;
+                if(flag == 0 || cont < minimoDeSolicitados){
 
-            if(prestamos[j].codigoLibro == libros[i].codigoLibro && prestamos[j].isEmpty == 0){
-
-                solicitudes++;
-                if((flag == 0 || minimo > solicitudes)){
-
-                    minimo = solicitudes;
+                    minimoDeSolicitados = cont;
                     flag = 1;
                 }
-
-            }
-        }
-            solicitudes = 0;
-
-     }
-printf("%d", minimo);
-    for(int i = 0; i < tamLibros ; i++){
-
-        for(int j = 0; j < tamPrestamos; j++){
-            if(prestamos[j].codigoLibro == libros[i].codigoLibro && prestamos[j].isEmpty == 0){
-
-                counter++;
+            }else{
+                minimoDeSolicitados = 0;
+                printf("%10s %10d\n\n", libros[i].titulo , libros[i].codigoLibro);
             }
 
-        }
-        if(counter == minimo){
-                    printf("\n*%s  %d\n", libros[i].titulo, libros[i].codigoLibro);
-        }
-        counter = 0;
+    }
     }
 
+    for(int i = 0; i < tamLibros; i++){
+        cont2 = 0;
+        for(int j = 0 ; j < tamPrestamos ; j++){
+                if(prestamos[j].codigoLibro == libros[i].codigoLibro)
+                cont2++;
+        }
+
+        while(minimoDeSolicitados <= cont2){
+
+            printf("%10s %10d",libros[i].titulo, libros[i].codigoLibro);
+        }
+    }
 
 }
 
 void sociosConMasPrestamos(eSocios socios[], int tamSocio, ePrestamos prestamos[], int tamPrestamos ){
 
-    int mayor;
-    int flag = 0;
-    int prestamo = 0;
-    int counter = 0;
+    int cont1;
+    int cont2;
+    int flag1 = 0;
+    int mayorPrestamo;
 
-    for(int i = 0; i < tamSocio ; i++){
-
+    for(int i = 0; i < tamSocio; i++){
         for(int j = 0; j < tamPrestamos; j++){
+            cont1 = 0;
+            if(prestamos[j].codigoSocio == socios[i].codigoSocio){
+                    cont1++;
+                if(flag1 == 0  || cont1 > mayorPrestamo){
 
-            if(prestamos[j].isEmpty == 0 && prestamos[j].codigoSocio == socios[i].codigoSocio){
-
-                prestamo++;
-
-                if(flag == 0 || mayor < prestamo){
-                    mayor = prestamo;
-                    flag = 1;
                 }
-
+            }
+            else{
+                mayorPrestamo = cont1;
             }
         }
-            prestamo = 0;
     }
 
-    printf("%d", mayor);
     for(int i = 0; i < tamSocio; i++){
-            for(int j = 0; j < tamPrestamos; j++){
-                if(prestamos[j].isEmpty == 0 && prestamos[j].codigoSocio == socios[i].codigoSocio){
-                    counter++;
-                }
-            }
-            if(counter == mayor){
-                printf("\n*%s %s %d %c\n", socios[i].nombre, socios[i].apellido, socios[i].codigoSocio,socios[i].sexo);
-            }
-            counter = 0;
+        cont2 = 0;
+        for(int j = 0 ; j < tamPrestamos ; j++){
+                if(prestamos[j].codigoSocio == socios[i].codigoSocio)
+                cont2++;
+        }
+
+        while(mayorPrestamo <= cont2){
+
+            printf("%10s %10s %10d",socios[i].apellido, socios[i].nombre, socios[i].codigoSocio);
+        }
     }
 }
 
